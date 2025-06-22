@@ -13,7 +13,7 @@ const webpAssets = Array.from({ length: 5 }, (_, i) => `/Assets/images/webp (${i
 const gifAssets = Array.from({ length: 3 }, (_, i) => `/Assets/images/gif (${i + 1}).gif`);
 
 // Combine all assets
-const Assets = [...jpgAssets, ...webpAssets, ...gifAssets];
+const Assets = [...gifAssets,...webpAssets,...jpgAssets];
 
 // Add classes to gallery container (once)
 imgGallery.classList.add("mt-5", "justify-around");
