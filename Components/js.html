@@ -10,38 +10,38 @@
     <title>Java Script</title>
 </head>
 
-<body class="h-full">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<body class="h-full bg-gray-100 flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Skip to main content</a>
 
-    <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open sidebar" aria-expanded="false"
-        aria-controls="navbar">
-        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9">
-            <path
-                d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z" />
-        </svg>
-    </button>
-
-    <nav id="navbar">
-        <ul>
+    <header class="bg-white shadow mb-6">
+      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-6">
+        <h1 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">Java Script</h1>
+        <nav>
+          <ul class="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
             <li>
-                <button id="close-sidebar-button" onclick="closeSidebar()" aria-label="close sidebar">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                        fill="#c9c9c9">
-                        <path
-                            d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z" />
-                    </svg>
-                </button>
+              <a href="/index.html" class="active-link text-blue-600 font-semibold px-3 py-2 rounded hover:bg-blue-100" aria-current="page">MY HUB</a>
             </li>
-            <li class="home-li"><a class="active-link" aria-current="page" href="/index.html">MY HUB</a></li>
-            <li><a href="/Components/PornLib.html">Library</a></li>
-            <li><a href="/Components/videogallery.html">Video Gallery</a></li>
-            <li><a href="/Components/Money.html">Money</a></li>
-            <li><a href="/Components/js.html">Java Script</a></li>
+            <li>
+              <a href="/Components/Warehouse.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Warehouse</a>
+            </li>
+            <li>
+              <a href="/Components/PornLib.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Library</a>
+            </li>
+            <li>
+              <a href="/Components/videogallery.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Video Gallery</a>
+            </li>
+            <li>
+              <a href="/Components/Money.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Money</a>
+            </li>
+            <li>
+              <a href="/Components/js.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Java Script</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        </ul>
-    </nav>
-
-    <main class="container m-auto">
+    <main class="container m-auto" id="main-content">
         <section>
             <div class="flex flex-col p-4 m-4">
                 <p>Factory functions</p>
