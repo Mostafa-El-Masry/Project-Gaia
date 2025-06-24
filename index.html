@@ -3,60 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Project Gaia helps manage work and personal tasks using AI." />
+    <meta
+      name="description"
+      content="Project Gaia helps manage work and personal tasks using AI."
+    />
     <title>Project Gaia - Home</title>
+    <link rel="stylesheet" href="Styles/nav.css" />
     <link rel="stylesheet" href="Styles/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
   <body class="min-h-screen flex flex-col bg-gray-100 text-gray-800">
-    
-    <header class="sr-only focus:not-sr-only">
-      <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Skip to content link for accessibility -->
+    <header
+      id="navbar"
+      class="bg-white shadow mb-6 transition-all duration-300"
+    >
+      <!-- NAVBAR -->
+      <div id="navbar-placeholder"></div>
     </header>
 
-    <div id="navbar-placeholder"></div>
-
-    <!-- Sidebar toggle -->
-    <button id="open-sidebar-button" onclick="openSidebar()" aria-label="Open sidebar" aria-expanded="false"
-      aria-controls="navbar" class="fixed top-4 left-4 z-50 bg-gray-800 text-white rounded-full p-2 shadow-lg md:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" height="32px" width="32px" fill="#c9c9c9">
-        <path d="M165.13-254.62h629.74q10.68 0 17.9 7.26t7.23 18q0 10.74-7.23 17.87t-17.9 7.13H165.13q-10.68 0-17.9-7.26T140 229.62q0-10.74 7.23-17.87t17.9-7.13Z" />
-      </svg>
-    </button>
-    <nav class="hidden md:block" id="navbar"></nav>
-    <div id="overlay" onclick="closeSidebar()" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
-
-    <main id="main-content" class="container mx-auto p-6 flex-1">
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full"
+    >
       <section id="abouttext" class="mb-8">
         <h2 class="text-2xl font-bold mb-2">About Project Gaia</h2>
         <p>
-          Project Gaia is a digital assistant I designed to help me manage what's remaining of my life—both work and personal.
+          Project Gaia is a digital assistant I designed to help me manage
+          what's remaining of my life—both work and personal.
         </p>
       </section>
 
       <section class="mb-8">
         <h2 class="text-2xl font-bold mb-2">Get Started</h2>
         <p>I'm starting today: June 22, 2025.</p>
-        
-        <p>Day 1 (June 22): Starting by gathering all my old JavaScript projects and combining them into one.</p>
-      </section>
-
-      <section class="bg-white shadow-md rounded-3xl p-6 max-w-md mx-auto">
-        <h2 class="text-xl font-bold mb-4">To Do</h2>
-        <form>
-          <input id="todo-input" type="text" placeholder="Add a To Do" autocomplete="off" class="border rounded px-3 py-2 w-2/3" />
-          <button id="add-button" type="button" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Add</button>
-        </form>
-        <ul id="todo-list" class="mt-4 list-disc pl-5"></ul>
+        <p>
+          Day 1 (June 22): Starting by gathering all my old JavaScript projects
+          and combining them into one.
+        </p>
+        <p>
+          Day 2 (June 23): index.html cleanning up and understand the code
+          better
+        </p>
       </section>
     </main>
 
-    <footer class="text-center p-4 text-sm text-gray-500">
+    <!-- Footer -->
+    <footer class="text-center px-4 py-6 text-sm text-gray-500">
       <p>&copy; Created by SaSa at HOME.</p>
     </footer>
 
-    <script src="/Scripts/ToDo.js" defer></script>
+    <!-- Scripts -->
     <script src="/Scripts/Navbar.js" defer></script>
-    <script src="/Scripts/SideBar.js" defer></script>
   </body>
 </html>

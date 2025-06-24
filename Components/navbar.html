@@ -1,25 +1,96 @@
-<header class="bg-white shadow mb-6">
-  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-6">
-    
-    <!-- Logo Block -->
-<a href="/index.html" class="flex items-center space-x-3 group">
-  <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 shadow-lg transform group-hover:scale-105 transition-transform duration-300">
-    <span class="text-white text-lg font-bold tracking-widest">G</span>
+<div
+  class="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-6"
+>
+  <!-- Logo Block: Always show G on left -->
+  <div class="flex items-center space-x-3">
+    <!-- Make G clickable for toggle on mobile -->
+    <button
+      onclick="toggleMobileMenu()"
+      class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 shadow-lg transform transition-transform duration-300 focus:outline-none"
+    >
+      <span class="text-white text-lg font-bold tracking-widest">G</span>
+    </button>
+    <!-- Gaia text as Home link (mobile) -->
+    <a
+      href="/index.html"
+      class="md:hidden text-2xl font-extrabold text-gray-800 group-hover:text-blue-600 transition-colors duration-300"
+      style="cursor: pointer"
+      >Gaia</a
+    >
+    <!-- Gaia text as Home link (desktop) -->
+    <a
+      href="/index.html"
+      class="hidden md:inline text-2xl font-extrabold text-gray-800 transition-colors duration-300"
+      >Gaia</a
+    >
   </div>
-  <span class="text-2xl font-extrabold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">Gaia</span>
-</a>
 
-    <!-- Navigation Links -->
-    <nav>
-      <ul class="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
-        <li><a href="/index.html" class="active-link text-blue-600 font-semibold px-3 py-2 rounded hover:bg-blue-100" aria-current="page">Home</a></li>
-        <li><a href="/Components/Warehouse.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Warehouse</a></li>
-        <li><a href="/Components/PhotosLiberary.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">PhotosLiberary</a></li>
-        <li><a href="/Components/videogallery.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Video Gallery</a></li>
-        <li><a href="/Components/Money.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Money</a></li>
-        <li><a href="/Components/js.html" class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100">Java Script</a></li>
-      </ul>
-    </nav>
-    
-  </div>
-</header>
+  <!-- Navigation Links -->
+  <nav id="main-nav" class="w-full md:w-auto mt-4 md:mt-0 hidden md:block">
+    <ul class="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+      <li>
+        <a
+          href="/Components/Warehouse.html"
+          class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100"
+          >Warehouse</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Components/PhotosLiberary.html"
+          class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100"
+          >PhotosLiberary</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Components/videogallery.html"
+          class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100"
+          >Video Gallery</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Components/Money.html"
+          class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100"
+          >Money</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Components/js.html"
+          class="text-gray-700 px-3 py-2 rounded hover:bg-blue-100"
+          >Java Script</a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Mobile menu button -->
+  <button
+    id="open-sidebar-button"
+    onclick="openSidebar()"
+    aria-label="Open sidebar"
+    aria-expanded="false"
+    aria-controls="navbar"
+    class="fixed top-4 left-4 z-50 bg-gray-800 text-white rounded-full p-2 shadow-lg md:hidden"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="32px"
+      width="32px"
+      fill="#c9c9c9"
+    >
+      <path
+        d="M165.13-254.62h629.74q10.68 0 17.9 7.26t7.23 18q0 10.74-7.23 17.87t-17.9 7.13H165.13q-10.68 0-17.9-7.26T140 229.62q0-10.74 7.23-17.87t17.9-7.13Z"
+      />
+    </svg>
+  </button>
+
+  <!-- Overlay for mobile menu -->
+  <div
+    id="overlay"
+    onclick="closeSidebar()"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+  ></div>
+</div>
