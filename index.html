@@ -3,72 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Project Gaia helps manage work and personal tasks using AI." />
     <title>Project Gaia - Home</title>
     <link rel="stylesheet" href="Styles/styles.css" />
-    <!-- Tailwind CSS CDN for new styles and utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Optional: Add your custom stylesheets if needed -->
-    <!-- <link href="/Styles/main.css" rel="stylesheet" /> -->
-    <!-- <link href="/Styles/Navbar.css" rel="stylesheet" /> -->
   </head>
-  <body class="h-full bg-gray-100 flex flex-col min-h-screen">
-
-    <!-- NAV BAR -->
-    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Skip to main content</a>
+  <body class="min-h-screen flex flex-col bg-gray-100 text-gray-800">
+    
+    <header class="sr-only focus:not-sr-only">
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+    </header>
 
     <div id="navbar-placeholder"></div>
-  
 
-    <!-- Optional: Sidebar button and overlay for mobile navigation -->
-    <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open sidebar" aria-expanded="false"
-      aria-controls="navbar" class="fixed top-4 left-4 z-50 bg-gray-800 rounded-full p-2 shadow-lg md:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="http://www.w3.org/2000/svg" width="32px" fill="#c9c9c9">
-        <path
-          d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z" />
+    <!-- Sidebar toggle -->
+    <button id="open-sidebar-button" onclick="openSidebar()" aria-label="Open sidebar" aria-expanded="false"
+      aria-controls="navbar" class="fixed top-4 left-4 z-50 bg-gray-800 text-white rounded-full p-2 shadow-lg md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" height="32px" width="32px" fill="#c9c9c9">
+        <path d="M165.13-254.62h629.74q10.68 0 17.9 7.26t7.23 18q0 10.74-7.23 17.87t-17.9 7.13H165.13q-10.68 0-17.9-7.26T140 229.62q0-10.74 7.23-17.87t17.9-7.13Z" />
       </svg>
     </button>
-    <nav class="navbar md:block hidden" id="navbar">
-      <!-- Navigation links are already in the header above for desktop -->
-    </nav>
-    <div id="overlay" onclick="closeSidebar()" aria-hidden="true" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+    <nav class="hidden md:block" id="navbar"></nav>
+    <div id="overlay" onclick="closeSidebar()" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
 
-    <main id="main-content" class="container main p-4 m-auto border-none flex-1">
-      <section id="abouttext">
-        <h2>About Project Gaia</h2>
+    <main id="main-content" class="container mx-auto p-6 flex-1">
+      <section id="abouttext" class="mb-8">
+        <h2 class="text-2xl font-bold mb-2">About Project Gaia</h2>
         <p>
-          Project Gaia is an AI designed to help me manage what's remaning of my
-          life both work and personal
+          Project Gaia is a digital assistant I designed to help me manage what's remaining of my life—both work and personal.
         </p>
       </section>
-      <section>
-        <h2>Get Started</h2>
-        <p>I'm starting today June 22 2025.</p>
-        <a href="new.html" class="button">Create New Project</a>
-        <video controls class="w-full my-4">
-          <source src="" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <p>Day 1 june 22: gonna start by combining my stuff together all the old js websites i created will add head.</p>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-2">Get Started</h2>
+        <p>I'm starting today: June 22, 2025.</p>
+        
+        <p>Day 1 (June 22): Starting by gathering all my old JavaScript projects and combining them into one.</p>
       </section>
-      <!-- To Do Widget -->
-      <div class="TodoWrapper bg-white shadow-lg rounded-3xl p-6 my-8 max-w-md mx-auto">
-        <h2 class="text-xl font-bold mb-4">TO DO</h2>
+
+      <section class="bg-white shadow-md rounded-3xl p-6 max-w-md mx-auto">
+        <h2 class="text-xl font-bold mb-4">To Do</h2>
         <form>
           <input id="todo-input" type="text" placeholder="Add a To Do" autocomplete="off" class="border rounded px-3 py-2 w-2/3" />
-          <button id="add-button" type="button" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded">ADD</button>
+          <button id="add-button" type="button" class="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Add</button>
         </form>
         <ul id="todo-list" class="mt-4 list-disc pl-5"></ul>
-      </div>
+      </section>
     </main>
 
-    <footer>
-      <p>&copy; Created By SaSa at HOME.</p>
+    <footer class="text-center p-4 text-sm text-gray-500">
+      <p>&copy; Created by SaSa at HOME.</p>
     </footer>
 
-    <!-- Scripts for ToDo and Sidebar -->
-    <script src="/Scripts/main.js"></script>
-    <script src="/Scripts/ToDo.js"></script>
-    <script src="/Scripts/Navbar.js"></script>
-    <script src="/Scripts/SideBar.js"></script>
+    <script src="/Scripts/ToDo.js" defer></script>
+    <script src="/Scripts/Navbar.js" defer></script>
+    <script src="/Scripts/SideBar.js" defer></script>
   </body>
 </html>
