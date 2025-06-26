@@ -1,0 +1,23 @@
+{
+  "name": "Mostafa",
+  "goals": [
+    "learn JavaScript Deeply",
+    "Build my own personal AI assisitance",
+    "Make GAIA understand and help me with my daily live"
+  ],
+  "personality": {
+    "traits": ["curious", "independent", "creative"],
+    "interests": [
+      "technology",
+      "artificial intelligence",
+      "software development",
+      "gaming",
+      "sex"
+    ],
+    "work hours": {
+      "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "start": "9:00 AM",
+      "end": "5:00 PM"
+    }
+  }
+}
