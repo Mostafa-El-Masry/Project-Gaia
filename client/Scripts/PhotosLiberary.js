@@ -6,14 +6,14 @@ const imgGallery = document.querySelector(".imggallery");
 // Generate jpg image paths (1-164)
 const jpgAssets = Array.from({ length: 164 }, (_, i) => `/Assets/images/jpg (${i + 1}).jpg`);
 
-// Generate webp image paths (1-5)
-const webpAssets = Array.from({ length: 5 }, (_, i) => `/Assets/images/webp (${i + 1}).webp`);
+// Generate webp image paths (1-2)
+const webpAssets = Array.from({ length: 2 }, (_, i) => `/Assets/images/webp (${i + 1}).webp`);
 
 // Generate gif image paths (1-8)
 const gifAssets = Array.from({ length: 3 }, (_, i) => `/Assets/images/gif (${i + 1}).gif`);
 
 // Combine all assets
-const Assets = [...gifAssets,...webpAssets,...jpgAssets];
+const Assets = [...jpgAssets,...gifAssets,...webpAssets];
 
 // Add classes to gallery container (once)
 imgGallery.classList.add("mt-5", "justify-around");
