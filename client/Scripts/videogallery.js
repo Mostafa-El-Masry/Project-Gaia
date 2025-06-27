@@ -403,9 +403,8 @@ function getSortedFilteredVideos() {
   return filtered;
 }
 
-// On page load, load (but do not play) the top video in the current sorting type
-window.addEventListener('DOMContentLoaded', function() {
-  const filtered = getSortedFilteredVideos();
+// --- BEGIN: Your existing code (minus DOMContentLoaded wrappers) ---
+const filtered = getSortedFilteredVideos();
   if (filtered.length > 0) {
     // Load the video but do not play it
     const vid = filtered[0];
@@ -432,7 +431,6 @@ window.addEventListener('DOMContentLoaded', function() {
     videoTitle.textContent = '';
     videoInfo.innerHTML = '';
   }
-});
 
 // When sorting changes, load (but do not play) the top video in the new sorting
 sortSelect.addEventListener('change', () => {

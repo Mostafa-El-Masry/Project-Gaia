@@ -1,30 +1,29 @@
-const toggleButton = document.getElementById("toggle-btn");
-const sidebar = document.getElementById("sidebar");
+document.addEventListener("DOMContentLoaded", () => {
+  fetch('/Components/Sidebar.html')
+    .then(res => res.text())
+    .then(html => {
+      const sidebarDiv = document.createElement('div');
+      sidebarDiv.innerHTML = html;
+      document.body.appendChild(sidebarDiv.firstElementChild);
 
-function toggleSidebar() {
-  sidebar.classList.toggle("close");
-  toggleButton.classList.toggle("rotate");
+      // Sidebar toggle logic after sidebar is loaded
+      const sidebar = document.getElementById('sidebar');
+      const toggleBtn = document.getElementById('sidebar-toggle');
 
-  closeAllSubMenus();
-}
+      if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', () => {
+          sidebar.classList.toggle('-translate-x-full');
+        });
 
-function toggleSubMenu(button) {
-  if (!button.nextElementSibling.classList.contains("show")) {
-    closeAllSubMenus();
-  }
-
-  button.nextElementSibling.classList.toggle("show");
-  button.classList.toggle("rotate");
-
-  if (sidebar.classList.contains("close")) {
-    sidebar.classList.toggle("close");
-    toggleButton.classList.toggle("rotate");
-  }
-}
-
-function closeAllSubMenus() {
-  Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
-    ul.classList.remove("show");
-    ul.previousElementSibling.classList.remove("rotate");
-  });
-}
+        document.addEventListener('keydown', (e) => {
+          if (
+            (e.key === 'g' || e.key === 'G') &&
+            document.activeElement.tagName !== 'INPUT' &&
+            document.activeElement.tagName !== 'TEXTAREA'
+          ) {
+            sidebar.classList.toggle('-translate-x-full');
+          }
+        });
+      }
+    });
+});

@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html class="h-full bg-gray-100" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/Styles/main.css" rel="stylesheet" />
+    <title>Porn Library</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="/Styles/main.css" rel="stylesheet" />
-  <link href="/Styles/Navbar.css" rel="stylesheet" />
-  <title>Porn Library</title>
-</head>
+  <body class="h-full bg-gray-100 flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only"
+      >Skip to main content</a
+    >
 
-<body class="h-full bg-gray-100 flex flex-col min-h-screen">
-  <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Skip to main content</a>
-
-  <div id="navbar-placeholder"></div>
-
-  <main class="imggallery m-auto py-2 flex-1" id="gallery">
-
-  </main>
-  <script src="/Scripts/PhotosLiberary.js"></script>
-    <script src="/Scripts/Navbar.js"></script>
-</body>
-
+    <main class="imggallery m-auto py-2 flex-1" id="gallery"></main>
+    <script src="/Scripts/PhotosLiberary.js"></script>
+  </body>
 </html>
