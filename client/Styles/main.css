@@ -318,61 +318,115 @@ h1{
 /* Add to main.css or a new slider.css and link it in your HTML */
 .carousel {
   position: relative;
-  width: 90vw;
-  max-width: 1200px;
+  width: 100vw;         /* Fill the width of the viewport */
+  max-width: 100vw;
+  height: 90vh;         /* Fill most of the height, but not all */
+  max-height: 90vh;
   margin: 0 auto;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 4px 32px #0002;
 }
 .carousel .list {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 90vh;
+}
+.carousel .list .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 90vh;
+}
+.carousel .list .item img {
+  max-width: 100vw;
+  max-height: 90vh;
+  min-width: 600px;
+  min-height: 400px;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px #0003;
+  display: block;
+  margin: 0 auto;
+}
+
+/* .carousel .list {
+  display: flex;
   transition: all 0.5s cubic-bezier(.4,2,.6,1);
-  height: 60vh;
+  height: 90vh;   /* Increased height for bigger display area */
   align-items: center;
   position: relative;
   z-index: 2;
 }
 .carousel .list .item {
   min-width: 100%;
-  transition: transform 0.5s cubic-bezier(.4,2,.6,1);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .carousel .list .item img {
-  max-width: 100%;
-  max-height: 55vh;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 90vh;
+  min-width: 600px;   /* Set a minimum width */
+  min-height: 400px;  /* Set a minimum height */
+  object-fit: contain;
   border-radius: 1rem;
   box-shadow: 0 4px 16px #0003;
-}
+  display: block;
+  margin: 0 auto;
+} */
 .carousel .thumbnail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2vw;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  justify-content: space-between; /* Push thumbnails to edges */
+  gap: 0; /* No gap needed, they're at the edges */
+  z-index: 3;
+  padding: 0 3vw; /* Optional: add some side padding */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 .carousel .thumbnail .item {
-  width: 160px;
-  height: 100px;
+  width: 200px;      /* Increased from 140px */
+  height: 200px;     /* Increased from 140px */
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 50%;           /* Make them perfectly circular */
   cursor: pointer;
-  opacity: 0.8;
-  border: 3px solid transparent;
+  opacity: 0.85;
+  border: 4px solid transparent;
   transition: border 0.2s, opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #0002;
+  background: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .carousel .thumbnail .item.active,
 .carousel .thumbnail .item:hover {
   opacity: 1;
-  border: 3px solid #00FFC4;
-  transform: scale(1.08);
+  /* Remove border color and scale effect on hover/active */
+  border: 4px solid transparent;
+  transform: none;
+  z-index: 4;
 }
 .carousel .thumbnail .item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;           /* Make the image itself circular */
 }
 .carousel .arrows {
   position: absolute;
@@ -397,5 +451,53 @@ h1{
 .carousel .arrows button:hover {
   background: #00FFC4;
   color: #101114;
+}
+.carousel .thumbnail .item,
+.carousel .thumbnail .item img,
+.carousel .list .item img {
+  cursor: url('https://cdn.jsdelivr.net/gh/ionic-team/ionicons@7.1.0/src/svg/hand-left-sharp.svg') 32 0, pointer;
+}
+.thumbnail.left-thumb,
+.thumbnail.right-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+.thumbnail.left-thumb {
+  left: 0;
+}
+.thumbnail.right-thumb {
+  right: 0;
+}
+.thumbnail.left-thumb .item,
+.thumbnail.right-thumb .item {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.85;
+  border: 4px solid transparent;
+  transition: border 0.2s, opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #0002;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumbnail.left-thumb .item img,
+.thumbnail.right-thumb .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 

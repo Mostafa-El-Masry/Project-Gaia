@@ -18,18 +18,13 @@
     >
 
     <!-- Slider Section -->
-    <div class="carousel mx-auto my-8">
-      <div class="list" id="carousel-list">
-        <!-- JS will inject .item elements here -->
+    <div class="relative w-full flex items-center justify-center my-8">
+      <div class="thumbnail left-thumb" id="carousel-thumb-left"></div>
+      <div class="carousel mx-auto">
+        <div class="list" id="carousel-list"></div>
+        <div class="time"></div>
       </div>
-      <div class="thumbnail" id="carousel-thumbnails">
-        <!-- JS will inject .item elements here -->
-      </div>
-      <div class="arrows">
-        <button id="prev">&lt;</button>
-        <button id="next">&gt;</button>
-      </div>
-      <div class="time"></div>
+      <div class="thumbnail right-thumb" id="carousel-thumb-right"></div>
     </div>
     <main class="imggallery m-auto py-2 flex-1" id="gallery"></main>
     <script src="/Scripts/PhotosLiberary.js"></script>
