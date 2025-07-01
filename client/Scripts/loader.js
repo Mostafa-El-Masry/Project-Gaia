@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // setup code (runs immediately when script is loaded)
+  fetch('Components/welcome.html')
+    .then(response => response.text())
+    .then(html => {
+      const dynamicContent = document.getElementById('dynamic-content');
+      if (dynamicContent) {
+        dynamicContent.innerHTML = html;
+
+        // Add event listener for "Enter Gaia" button
+        const enterBtn = document.getElementById('enter-gaia-btn');
+        if (enterBtn) {
+          enterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.reload(); // Reload to show main content
+          });
+        }
+      }
+    });
 });
 
 function loadComponent(componentName) {
