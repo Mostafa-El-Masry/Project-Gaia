@@ -13,13 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (enterBtn) {
             enterBtn.addEventListener('click', (e) => {
               e.preventDefault();
-              // Hide the welcome screen
-              pageContent.innerHTML = '';
-              pageContent.style.display = 'none';
-
-              // Load Sidebar and Core components
-              loadComponent('Sidebar', 'sidebar-container');
-              loadComponent('Core', 'core-container');
+              // Load Core.html into #page-content
+              loadComponent('Core', 'page-content');
             });
           }
         }, 0);
@@ -64,3 +59,4 @@ function loadComponent(componentName, containerId) {
       }
     });
 }
+

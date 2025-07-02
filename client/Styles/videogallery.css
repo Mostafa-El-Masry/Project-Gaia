@@ -1,12 +1,12 @@
 /* =======================
-   Refined Video Gallery Styles
+   Bright Video Gallery Styles – No Glow, Neutral Title
    ======================= */
 
 .video-gallery-root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(120deg, #191c24 0%, #23283e 100%);
+  background: linear-gradient(120deg, #f9fafb 0%, #f3f6fa 100%);
   min-height: 100vh;
-  color: #e3e6ed;
+  color: #21243d;
   padding-bottom: 2rem;
 }
 
@@ -37,10 +37,10 @@
   max-width: 100vw;
   aspect-ratio: 16/9;
   border-radius: 1.2rem;
-  background: #000;
+  background: #f1f2f7;
   display: block;
   margin: 0 auto;
-  box-shadow: none;
+  box-shadow: 0 4px 24px 0 #e5e9f4;
   border: none;
 }
 @media (max-width: 900px) {
@@ -62,7 +62,7 @@
 /* Video Title & Info */
 .video-gallery-root .video-title {
   font-size: 1.65rem;
-  color: #00FFC4;
+  color: #444857;
   font-weight: 700;
   margin-top: 1.3rem;
   margin-bottom: 0.55rem;
@@ -71,13 +71,13 @@
 }
 .video-gallery-root .video-info {
   font-size: 1.12rem;
-  color: #b6b9ce;
-  background: rgba(44, 62, 80, 0.18);
+  color: #44485a;
+  background: rgba(74, 107, 255, 0.07);
   border-radius: 1.1rem;
   margin: 0.6rem auto 0 auto;
   max-width: 540px;
   padding: 1.1rem 1.3rem;
-  box-shadow: 0 1px 8px #00ffc418;
+  box-shadow: 0 1px 8px #e8eaf1;
   text-align: center;
 }
 
@@ -92,27 +92,68 @@
 .video-gallery-root .controls input[type="text"],
 .video-gallery-root .controls select {
   padding: 0.7rem 1.2rem;
-  border: 1.5px solid #4A4D57;
+  border: 1.5px solid #d3dbf3;
   border-radius: 0.75rem;
   font-size: 1rem;
-  background: #23283e;
-  color: #e3e6ed;
+  background: #ffffff;
+  color: #21243d;
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   outline: none;
 }
 .video-gallery-root .controls input[type="text"]:focus,
 .video-gallery-root .controls select:focus {
-  border-color: #00ffc4;
-  box-shadow: 0 0 0 2px #00ffc430;
-  background: #23283e;
+  border-color: #444857;
+  box-shadow: 0 0 0 2px #44485725;
+  background: #f6f8ff;
 }
 .video-gallery-root .controls select {
-  min-width: 140px;
+  min-width: 145px;
   cursor: pointer;
+  font-weight: 500;
+  background-color: #f3f6fa;
+  color: #444857;
+  box-shadow: 0 1px 6px #ecefff;
+  border: 1.5px solid #b9c5e6;
+  margin-left: 0.25rem;
 }
 .video-gallery-root .controls option {
-  background: #191c24;
-  color: #e3e6ed;
+  background: #fff;
+  color: #2e3451;
+  font-weight: 400;
+}
+
+/* Style the sort select specifically (give it a unique class if possible) */
+#sort, .video-gallery-root .controls #sort {
+  background: #edf1fc;
+  color: #444857;
+  border-radius: 0.65rem;
+  border: 1.5px solid #b9c5e6;
+  font-weight: 600;
+  margin-left: 0.7rem;
+  padding: 0.7rem 2.2rem 0.7rem 1.2rem;
+  box-shadow: 0 2px 6px #e5e9f444;
+  position: relative;
+  top: 0.1rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+#sort:focus, .video-gallery-root .controls #sort:focus {
+  border-color: #444857;
+  background: #f6f8ff;
+  outline: none;
+}
+
+/* Move sort select to the right on larger screens */
+@media (min-width: 700px) {
+  .video-gallery-root .controls {
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
+  #sort, .video-gallery-root .controls #sort {
+    margin-left: auto;
+    margin-right: 0;
+    position: relative;
+    top: 0.05rem;
+  }
 }
 
 /* Video List Grid: 4 on Desktop, 2 on Tablet, 1 on Mobile */
@@ -142,9 +183,9 @@
 
 /* Video Card Styles: No Scale/Highlight On Hover */
 .video-gallery-root .video-card {
-  background: #23283e;
+  background: #fff;
   border-radius: 1.25rem;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.09);
+  box-shadow: 0 4px 24px 0 #e9eefc;
   overflow: hidden;
   cursor: pointer;
   transition: none;
@@ -156,9 +197,10 @@
 .video-gallery-root .video-card:hover,
 .video-gallery-root .video-card:focus-within {
   transform: none;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.09);
+  box-shadow: 0 4px 24px 0 #e9eefc;
   border: none;
   z-index: 1;
+  background: #f6f8ff;
 }
 .video-gallery-root .video-card img {
   width: 100%;
@@ -168,30 +210,30 @@
   border-top-left-radius: 1.09rem;
   border-top-right-radius: 1.09rem;
   transition: none;
-  background: #161825;
+  background: #f0f2f7;
 }
 .video-gallery-root .video-card:hover img {
   transform: none;
   box-shadow: none;
 }
 
-/* Video Card Info - Glossy "Glassmorphism" Look */
+/* Video Card Info - Bright Glossy "Glassmorphism" Look */
 .video-gallery-root .video-card .info {
   padding: 1.1rem 1.1rem 1rem 1.1rem;
-  color: #e3e6ed;
+  color: #444857;
   font-size: 1rem;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   border-radius: 0 0 1.1rem 1.1rem;
-  background: rgba(36, 41, 58, 0.43);
+  background: rgba(255, 255, 255, 0.7);
   box-shadow:
-    0 2px 12px 0 rgba(0,255,196,0.10),
-    0 1.5px 8px 0 rgba(0,255,196,0.07) inset;
-  backdrop-filter: blur(7px) saturate(160%);
-  -webkit-backdrop-filter: blur(7px) saturate(160%);
-  border-top: 1px solid rgba(0,255,196,0.18);
+    0 2px 12px 0 #f1f2f7,
+    0 1.5px 8px 0 #e2e4ee inset;
+  backdrop-filter: blur(7px) saturate(140%);
+  -webkit-backdrop-filter: blur(7px) saturate(140%);
+  border-top: 1px solid #e9eefc;
   position: relative;
   overflow: hidden;
 }
@@ -208,7 +250,7 @@
 }
 .video-gallery-root .video-card .info h4 {
   font-size: 1.09rem;
-  color: #ffffff;
+  color: #23242a;
   font-weight: 700;
   margin-bottom: 0.12rem;
   text-overflow: ellipsis;
@@ -221,7 +263,7 @@
 .video-gallery-root .video-card .info p {
   margin: 0;
   font-size: 0.96rem;
-  color: #7ee1cf;
+  color: #55596e;
   position: relative;
   z-index: 2;
 }
@@ -230,16 +272,17 @@
   align-self: flex-start;
   font-size: 0.85rem;
   font-weight: 600;
-  background: #e5f6ff;
-  color: #059669;
+  background: #f4f6fa;
+  color: #23242a;
   border-radius: 6px;
   padding: 0.22em 0.8em;
   position: relative;
   z-index: 2;
+  box-shadow: 0 1px 2px #e5e9f4;
 }
 .video-gallery-root .video-card .info .badge.unwatched {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #ffeaea;
+  color: #b94747;
 }
 
 /* Gallery Title and Video Count */
@@ -247,13 +290,13 @@
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
-  color: #00ffc4;
+  color: #23242a;
   margin-bottom: 0.2em;
   letter-spacing: 1px;
-  text-shadow: 0px 2px 12px #161825cc;
+  /* Removed glow/text-shadow */
 }
 .video-gallery-root #video-count {
-  color: #b6b9ce;
+  color: #8d8fa6;
   text-align: center;
   margin-bottom: 1.1em;
   font-size: 1.05rem;
@@ -262,14 +305,14 @@
 /* Hide Scrollbars for Grid */
 .video-gallery-root .video-list {
   scrollbar-width: thin;
-  scrollbar-color: #00ffc4 #23283e;
+  scrollbar-color: #e7eaf5 #f0f2f7;
 }
 .video-gallery-root .video-list::-webkit-scrollbar {
   width: 8px;
-  background: #23283e;
+  background: #f0f2f7;
 }
 .video-gallery-root .video-list::-webkit-scrollbar-thumb {
-  background: #00ffc4;
+  background: #e7eaf5;
   border-radius: 4px;
 }
 
@@ -304,11 +347,12 @@
 }
 
 /* Enhance Select Dropdown */
-.video-gallery-root .controls select {
+.video-gallery-root .controls select,
+#sort, .video-gallery-root .controls #sort {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg'><path fill='%2300ffc4' d='M7 10l5 5 5-5z'/></svg>");
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='24' height='24' xmlns='http://www.w3.org/2000/svg'><path fill='%23444857' d='M7 10l5 5 5-5z'/></svg>");
   background-position: right 0.9em center;
   background-size: 1.1em;
   background-repeat: no-repeat;
