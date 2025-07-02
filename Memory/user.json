@@ -1,10 +1,13 @@
 {
   "name": "Mostafa",
-  "goals": [
-    "learn JavaScript Deeply",
-    "Build my own personal AI assisitance",
-    "Make GAIA understand and help me with my daily live"
-  ],
+  "age": 34,
+  "location": "Kuwait",
+
+  "habits": {
+    "morning": ["Wake up at 6", "Jog 30 mins"],
+    "evening": ["Read 20 mins"]
+  },
+
   "personality": {
     "traits": ["curious", "independent", "creative"],
     "interests": [
@@ -14,6 +17,19 @@
       "gaming",
       "sex"
     ],
+    "goals": [
+      "learn JavaScript Deeply",
+      "Build my own personal AI assisitance",
+      "Make GAIA understand and help me with my daily live",
+      "Lose weight",
+      "Build GAIA",
+      "Get married"
+    ],
+    "skills": {
+      "programming": ["JavaScript", "HTML", "CSS"],
+      "languages": ["English", "Arabic"],
+      "soft skills": ["communication", "problem-solving", "time management"]
+    },
     "work hours": {
       "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "start": "9:00 AM",
