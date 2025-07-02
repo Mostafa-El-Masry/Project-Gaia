@@ -1,0 +1,29 @@
+body {
+  background: #181c24;
+}
+.gaia-section {
+  background: #23283a;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px #0004;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  color: #e0e6f0;
+}
+.gaia-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #7dd3fc;
+  letter-spacing: 0.03em;
+}
+.gaia-section .placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+.gaia-sections-wrapper {
+  max-width: 700px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
