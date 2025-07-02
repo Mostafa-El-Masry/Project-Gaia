@@ -9,6 +9,9 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/Styles/main.css" rel="stylesheet" />
+    <link href="/Styles/nav.css" rel="stylesheet" />
+    <link href="/Styles/global.css" rel="stylesheet" />
+    <link href="/Styles/styles.css" rel="stylesheet" />
     <link href="/Styles/videogallery.css" rel="stylesheet" />
     <title>Video Gallery</title>
   </head>
@@ -18,50 +21,54 @@
       >Skip to main content</a
     >
 
-    <div class="container mx-auto px-4 py-8 flex-1">
-      <header>
-        <h1 class="gallery-title text-3xl font-bold mb-4">Video Gallery</h1>
-        <p id="video-count" class="mb-4"></p>
-      </header>
+    <!-- START: Add the video-gallery-root wrapper here -->
+    <div class="video-gallery-root">
+      <div class="mx-auto px-4 py-8 flex-1" style="max-width: 90vw">
+        <header>
+          <h1 class="gallery-title text-3xl font-bold mb-4">Video Gallery</h1>
+          <p id="video-count" class="mb-4"></p>
+        </header>
 
-      <main>
-        <section class="player-section mb-8">
-          <div class="video-container mb-4">
-            <video
-              id="video-player"
-              controls
-              poster=""
-              class="w-full max-w-3xl mx-auto rounded shadow"
-            >
-              <source id="video-source" src="" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div
-              class="video-title text-xl font-semibold mt-2 text-center"
-              id="video-title"
-            ></div>
-          </div>
-          <div class="video-info text-center" id="video-info"></div>
-        </section>
+        <main>
+          <section class="player-section mb-8">
+            <div class="video-container mb-4">
+              <video
+                id="video-player"
+                controls
+                poster=""
+                class="w-full max-w-3xl mx-auto rounded shadow"
+              >
+                <source id="video-source" src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div
+                class="video-title text-xl font-semibold mt-2 text-center"
+                id="video-title"
+              ></div>
+            </div>
+            <div class="video-info text-center" id="video-info"></div>
+          </section>
 
-        <section class="controls flex flex-wrap gap-2 mb-6">
-          <input
-            type="text"
-            id="search"
-            placeholder="Search videos..."
-            class="flex-1 px-2 py-1 border rounded"
-          />
-          <select id="filter" class="px-2 py-1 border rounded">
-            <option value="all">All</option>
-            <option value="watched">Watched</option>
-            <option value="unwatched">Unwatched</option>
-          </select>
-        </section>
+          <section class="controls flex flex-wrap gap-2 mb-6">
+            <input
+              type="text"
+              id="search"
+              placeholder="Search videos..."
+              class="flex-1 px-2 py-1 border rounded"
+            />
+            <select id="filter" class="px-2 py-1 border rounded">
+              <option value="all">All</option>
+              <option value="watched">Watched</option>
+              <option value="unwatched">Unwatched</option>
+            </select>
+          </section>
 
-        <section class="video-list grid gap-4" id="video-list"></section>
-        <div id="videoContainer"></div>
-      </main>
+          <section class="video-list grid gap-4" id="video-list"></section>
+          <div id="videoContainer"></div>
+        </main>
+      </div>
     </div>
+    <!-- END: video-gallery-root wrapper -->
 
     <script src="/Scripts/videogallery.js"></script>
   </body>
