@@ -1,24 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Load the welcome screen initially into #page-content
+  // Hide everything except the welcome overlay
+  const navbar = document.getElementById('navbar');
+  const mainContent = document.getElementById('main-content');
+  const footer = document.querySelector('footer');
+  const sidebar = document.getElementById('sidebar-container');
+  const core = document.getElementById('core-container');
+  if (navbar) navbar.style.display = 'none';
+  if (mainContent) mainContent.style.display = 'none';
+  if (footer) footer.style.display = 'none';
+
+  // Load the welcome screen into the overlay
   fetch('Components/welcome.html')
     .then(response => response.text())
     .then(html => {
-      const pageContent = document.getElementById('page-content');
-      if (pageContent) {
-        pageContent.innerHTML = html;
+      const overlay = document.getElementById('welcome-overlay');
+      if (overlay) {
+        overlay.innerHTML = html;
+        overlay.style.display = 'block';
 
-        // Attach event listener for the Enter button (wait for DOM to update)
-        setTimeout(() => {
-          const enterBtn = document.getElementById('enter-gaia-btn');
-          if (enterBtn) {
-            enterBtn.addEventListener('click', (e) => {
-              e.preventDefault();
-              // Load Core.html into #page-content
-              loadComponent('Core', 'page-content');
-            });
-          }
-        }, 0);
+        // Optional: Make overlay cover everything
+        overlay.style.position = 'fixed';
+        overlay.style.top = 0;
+        overlay.style.left = 0;
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.background = 'rgba(16,17,20,0.98)';
+        overlay.style.zIndex = 9999;
       }
+
+      setTimeout(() => {
+        const enterBtn = document.getElementById('enter-gaia-btn');
+        if (enterBtn) {
+          enterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Hide the overlay and show the app
+            if (overlay) overlay.style.display = 'none';
+            if (navbar) navbar.style.display = '';
+            if (mainContent) mainContent.style.display = '';
+            if (footer) footer.style.display = '';
+            if (sidebar) sidebar.style.display = '';
+            if (core) core.style.display = '';
+            // Optionally, load Core.html into #page-content
+            loadComponent('Core', 'page-content');
+          });
+        }
+      }, 0);
     });
 });
 
