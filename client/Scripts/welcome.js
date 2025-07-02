@@ -1,30 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const mainContent = document.getElementById('main-content');
-  if (!mainContent) return;
+document.addEventListener('DOMContentLoaded', function () {
+  // Delegate event to the actual button after welcome is loaded
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'enter-gaia-btn') {
+      // Hide or clear the welcome screen
+      const pageContent = document.getElementById('page-content');
+      if (pageContent) {
+        pageContent.style.display = 'none'; // Or use: pageContent.innerHTML = '';
+      }
 
-  // Only show if not already dismissed this session
-  if (!sessionStorage.getItem('welcomeShown')) {
-    // Create the welcome container
-    const container = document.createElement('div');
-    container.className = 'welcome-container fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50';
-    container.innerHTML = `
-      <div class="bg-white rounded-xl shadow-xl p-8 text-center max-w-md w-full">
-        <h2 class="text-2xl font-bold mb-4">Welcome to GAIA</h2>
-        <p class="mb-6 text-gray-600">Your personal AI companion</p>
-        <button class="enter-btn bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition">Enter</button>
-      </div>
-    `;
+      // Helper to load a component into a container
+      function loadComponent(htmlPath, containerId) {
+        fetch(htmlPath)
+          .then(response => response.text())
+          .then(html => {
+            const container = document.getElementById(containerId);
+            if (container) {
+              container.innerHTML = html;
+            }
+          });
+      }
 
-    // Add to main content (as overlay)
-    mainContent.appendChild(container);
-
-    // Hide on click and set session flag
-    const button = container.querySelector('.enter-btn');
-    if (button) {
-      button.addEventListener('click', () => {
-        container.remove();
-        sessionStorage.setItem('welcomeShown', 'true');
-      });
+      // Load Sidebar.html into #sidebar-container
+      loadComponent('Components/Sidebar.html', 'sidebar-container');
+      // Load Core.html into #core-container
+      loadComponent('Components/Core.html', 'core-container');
     }
-  }
+  });
 });

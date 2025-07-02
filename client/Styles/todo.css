@@ -1,0 +1,29 @@
+.todo-root .TodoWrapper,
+.TodoWrapper {
+  font-size: 10pt;
+  min-height: 50vh;
+  max-height: 80vh;
+  padding: 10px;
+  background-color: var(--background);
+  align-items: center;
+  width: 700px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #f8f9fa;
+  overflow: hidden;
+  min-width: 30vw;
+  max-width: 50vw;
+}
+.todo-root .TodoWrapper h1,
+.TodoWrapper h1 {
+  margin-top: 1rem;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+}
+/* ...rest of todo styles, scoped with .todo-root or .TodoWrapper... */

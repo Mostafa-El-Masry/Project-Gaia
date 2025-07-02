@@ -1,49 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Load the welcome screen initially into #page-content
   fetch('Components/welcome.html')
     .then(response => response.text())
     .then(html => {
-      const dynamicContent = document.getElementById('dynamic-content');
-      if (dynamicContent) {
-        dynamicContent.innerHTML = html;
+      const pageContent = document.getElementById('page-content');
+      if (pageContent) {
+        pageContent.innerHTML = html;
 
-        // Add event listener for "Enter Gaia" button
-        const enterBtn = document.getElementById('enter-gaia-btn');
-        if (enterBtn) {
-          enterBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.location.reload(); // Reload to show main content
-          });
-        }
+        // Attach event listener for the Enter button (wait for DOM to update)
+        setTimeout(() => {
+          const enterBtn = document.getElementById('enter-gaia-btn');
+          if (enterBtn) {
+            enterBtn.addEventListener('click', (e) => {
+              e.preventDefault();
+              // Hide the welcome screen
+              pageContent.innerHTML = '';
+              pageContent.style.display = 'none';
+
+              // Load Sidebar and Core components
+              loadComponent('Sidebar', 'sidebar-container');
+              loadComponent('Core', 'core-container');
+            });
+          }
+        }, 0);
       }
     });
 });
 
-function loadComponent(componentName) {
+// Generic function to load a component into a specific container
+function loadComponent(componentName, containerId) {
   const htmlPath = `Components/${componentName}.html`;
   const jsPath = `Scripts/${componentName}.js`;
 
-  // Load the component HTML
   fetch(htmlPath)
     .then(res => {
       if (!res.ok) throw new Error(`Cannot find ${componentName}.html`);
       return res.text();
     })
     .then(html => {
-      const container = document.getElementById("page-content");
-      if (!container) throw new Error("#page-content not found");
+      const container = document.getElementById(containerId);
+      if (!container) throw new Error(`#${containerId} not found`);
       container.innerHTML = html;
 
-      // Then load the JS file dynamically
-      const script = document.createElement('script');
-      script.src = jsPath;
-      script.id = 'dynamic-component-script';
-      script.defer = true;
-      document.body.appendChild(script);
+      // Then load the JS file dynamically (if exists)
+      fetch(jsPath)
+        .then(jsRes => {
+          if (jsRes.ok) {
+            const script = document.createElement('script');
+            script.src = jsPath;
+            script.id = `dynamic-script-${componentName}`;
+            script.defer = true;
+            document.body.appendChild(script);
+          }
+        });
     })
     .catch(err => {
       console.error("Component loading failed:", err);
-      document.getElementById("page-content").innerHTML = `
-        <div style="color:red; text-align:center;">Error loading ${componentName}</div>
-      `;
+      const container = document.getElementById(containerId);
+      if (container) {
+        container.innerHTML = `
+          <div style="color:red; text-align:center;">Error loading ${componentName}</div>
+        `;
+      }
     });
 }

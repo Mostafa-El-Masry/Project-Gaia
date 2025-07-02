@@ -27,3 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
+// Sidebar component JS (optional)
+console.log("Sidebar loaded!");
