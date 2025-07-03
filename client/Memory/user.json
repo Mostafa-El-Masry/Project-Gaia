@@ -18,12 +18,11 @@
       "sex"
     ],
     "goals": [
+      "Get married",
       "learn JavaScript Deeply",
       "Build my own personal AI assisitance",
       "Make GAIA understand and help me with my daily live",
-      "Lose weight",
-      "Build GAIA",
-      "Get married"
+      "Lose weight"
     ],
     "skills": {
       "programming": ["JavaScript", "HTML", "CSS"],
