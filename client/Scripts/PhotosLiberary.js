@@ -18,6 +18,7 @@
     [Assets[i], Assets[j]] = [Assets[j], Assets[i]];
   }
 
+  
   // --- SLIDER LOGIC (main image + left/right thumbnails) ---
   let currentIndex = 0;
   const carouselList = document.getElementById('carousel-list');
@@ -69,19 +70,38 @@
   imgGallery.innerHTML = "";
   imgGallery.classList.add("mt-5", "justify-around");
   const fragment = document.createDocumentFragment();
-  Assets.forEach((assetSrc) => {
-    const galleryDiv = document.createElement("div");
-    const link = document.createElement("a");
-    const img = document.createElement("img");
-    link.append(img);
-    galleryDiv.append(link);
-    link.setAttribute("target", "_blank");
-    link.setAttribute("href", assetSrc);
-    img.setAttribute("src", assetSrc);
-    img.setAttribute("alt", "Gallery Image");
-    img.classList.add("rounded-lg", "box-border");
-    galleryDiv.classList.add("flex", "max-w-lg", "rounded-lg");
-    fragment.append(galleryDiv);
-  });
+Assets.forEach((assetSrc) => {
+  const galleryDiv = document.createElement("div");
+  const link = document.createElement("a");
+  const img = document.createElement("img");
+  link.append(img);
+  galleryDiv.append(link);
+  link.setAttribute("target", "_blank");
+  link.setAttribute("href", assetSrc);
+  img.setAttribute("src", assetSrc);
+  img.setAttribute("alt", "Gallery Image");
+  img.loading = "lazy"; // ✅ Already added this — great!
+
+  // ✅ Add image type class for filtering later
+  if (assetSrc.endsWith(".jpg")) img.classList.add("jpg");
+  if (assetSrc.endsWith(".gif")) img.classList.add("gif");
+  if (assetSrc.endsWith(".webp")) img.classList.add("webp");
+  img.classList.add("rounded-lg", "box-border");
+  galleryDiv.classList.add("flex", "max-w-lg", "rounded-lg");
+  fragment.append(galleryDiv);
+});
+
   imgGallery.append(fragment);
 })();
+
+
+function filterImages(type) {
+  const allImages = document.querySelectorAll('#gallery img');
+  allImages.forEach(img => {
+    if (type === 'all') {
+      img.style.display = '';
+    } else {
+      img.style.display = img.classList.contains(type) ? '' : 'none';
+    }
+  });
+}
