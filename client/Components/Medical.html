@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Tracker</title>
+    <link rel="stylesheet" href="/Styles/Medical.css" />
+  </head>
+  <body>
+    <section class="medical-tracker">
+      <h2>Medical Tracker</h2>
+
+      <div class="tracker-section">
+        <h3>Current Conditions</h3>
+        <ul id="conditionList"></ul>
+        <input type="text" id="conditionInput" placeholder="Add a condition" />
+        <button onclick="addCondition()">Add</button>
+      </div>
+
+      <div class="tracker-section">
+        <h3>Medications</h3>
+        <ul id="medicineList"></ul>
+        <input type="text" id="medicineInput" placeholder="Add a medication" />
+        <button onclick="addMedicine()">Add</button>
+      </div>
+
+      <div class="tracker-section">
+        <h3>Blood Sugar Log</h3>
+        <ul id="sugarList"></ul>
+        <input
+          type="number"
+          id="sugarInput"
+          placeholder="Blood Sugar (mg/dL)"
+        />
+        <button onclick="addSugar()">Log</button>
+      </div>
+    </section>
+    <script src="/Scripts/Medical.js"></script>
+  </body>
+</html>
