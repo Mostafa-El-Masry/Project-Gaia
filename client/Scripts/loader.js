@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
           enterBtn.addEventListener('click', (e) => {
             e.preventDefault();
             // Hide the overlay and show the app
+            loadComponent('Navbar', 'navbar');
             if (overlay) overlay.style.display = 'none';
             if (navbar) navbar.style.display = '';
             if (mainContent) mainContent.style.display = '';
