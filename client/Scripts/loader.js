@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
   const footer = document.querySelector("footer");
   const sidebar = document.getElementById("sidebar-container");
-  const Core = document.getElementById("core-container");
+  const Core = document.getElementById("Core-container");
 
   if (navbar) navbar.style.display = "none";
   if (mainContent) mainContent.style.display = "none";
