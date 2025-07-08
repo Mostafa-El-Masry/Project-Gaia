@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Hide everything except the welcome overlay
-  const navbar = document.getElementById("navbar");
+  const Navbar = document.getElementById("Navbar");
   const mainContent = document.getElementById("main-content");
   const footer = document.querySelector("footer");
   const sidebar = document.getElementById("sidebar-container");
   const Core = document.getElementById("Core-container");
 
-  if (navbar) navbar.style.display = "none";
+  if (Navbar) Navbar.style.display = "none";
   if (mainContent) mainContent.style.display = "none";
   if (footer) footer.style.display = "none";
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           enterBtn.addEventListener("click", (e) => {
             e.preventDefault();
             if (overlay) overlay.style.display = "none";
-            if (navbar) navbar.style.display = "";
+            if (Navbar) Navbar.style.display = "";
             if (mainContent) mainContent.style.display = "";
             if (footer) footer.style.display = "";
             if (sidebar) sidebar.style.display = "";
