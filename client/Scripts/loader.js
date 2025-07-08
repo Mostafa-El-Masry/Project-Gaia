@@ -4,15 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainContent = document.getElementById('main-content');
   const footer = document.querySelector('footer');
   const sidebar = document.getElementById('sidebar-container');
-  const core = document.getElementById('core-container');
+  const Core = document.getElementById('core-container');
   
-
+  if (navbar) navbar.style.display = 'none';
   if (mainContent) mainContent.style.display = 'none';
   if (footer) footer.style.display = 'none';
 
   // Load the welcome screen into the overlay
   fetch('Components/welcome.html')
-    .then(response => response.text())
+  .then(response => {
+    if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+    return response.text();
+  })
     .then(html => {
       const overlay = document.getElementById('welcome-overlay');
       if (overlay) {
@@ -40,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (mainContent) mainContent.style.display = '';
             if (footer) footer.style.display = '';
             if (sidebar) sidebar.style.display = '';
-            if (core) core.style.display = '';
+            if (Core) Core.style.display = '';
             // Optionally, load Core.html into #page-content
             loadComponent('Core', 'page-content');
           });
