@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".doc-title").forEach((title) => {
-    title.addEventListener("click", function () {
-      const parent = this.parentElement;
-      const content = parent.querySelector(".doc-content");
-      const isHidden = content.hasAttribute("hidden");
+  alert(
+    "Welcome to the HTML Guide! Click on any topic to expand or collapse its content."
+  );
+  console.log("aaa");
+  document.querySelectorAll(".doc-topic").forEach((topic) => {
+    const title = topic.querySelector(".doc-title");
+    const content = topic.querySelector(".doc-content");
+    // Hide all contents by default
+    content.style.display = "none";
 
-      if (isHidden) {
-        content.removeAttribute("hidden");
-        parent.classList.add("open");
-        this.classList.add("active");
-      } else {
-        content.setAttribute("hidden", "");
-        parent.classList.remove("open");
-        this.classList.remove("active");
-      }
+    topic.addEventListener("click", function (e) {
+      // Prevent toggling when clicking inside the content
+      if (e.target !== title && !title.contains(e.target)) return;
+      const isHidden = content.style.display === "none";
+      title.classList.toggle("active", isHidden);
+      content.style.display = isHidden ? "" : "none";
     });
   });
 });

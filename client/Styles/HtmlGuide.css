@@ -221,22 +221,24 @@ main section > h2 {
 
 /* Doc Content Box (Hidden by default) */
 .doc-content {
-  max-height: 0;
-  overflow: hidden;
+  max-height: none;
+  overflow: visible;
   background: rgba(248, 250, 255, 0.92);
   color: #2d3451;
   font-size: 1rem;
-  padding: 0 28px;
+  padding: 18px 28px;
   border-top: 1px solid rgba(180, 199, 255, 0.13);
-  opacity: 0;
-  transition: max-height 0.36s cubic-bezier(.77,0,.18,1), padding 0.28s, opacity 0.2s;
+  opacity: 1;
+  transition: none;
 }
 
+/* Remove .doc-topic.open .doc-content rules */
 .doc-topic.open .doc-content {
-  max-height: 240px;
+  max-height: none;
   padding-top: 18px;
   padding-bottom: 18px;
   opacity: 1;
+  transition: none;
 }
 
 /* Small tweaks for better mobile experience */
