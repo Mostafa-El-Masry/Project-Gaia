@@ -16,8 +16,36 @@
         </ul>
       </nav>
       <main>
-        <section id="elements">
-          <h2>Elements</h2>
+        <section id="html-intro">
+          <h2>Introduction to HTML</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What is HTML?</div>
+            <div class="doc-content">
+              HTML stands for HyperText Markup Language. It is the standard
+              language used to create and structure content on the web. HTML
+              uses elements represented by tags to define text, links, images,
+              and more.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">What are Tags?</div>
+            <div class="doc-content">
+              Tags are keywords wrapped in angle brackets (e.g., &lt;p&gt;).
+              Most HTML elements have an opening tag, content, and a closing tag
+              (e.g., &lt;p&gt;This is a paragraph&lt;/p&gt;).
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Doctype Declaration</div>
+            <div class="doc-content">
+              The <code>&lt;!DOCTYPE html&gt;</code> declaration defines the
+              document as HTML5. It should be placed at the very beginning of
+              every HTML document.
+            </div>
+          </div>
           <div class="doc-topic">
             <div class="doc-title">What is an HTML element?</div>
             <div class="doc-content">
@@ -25,6 +53,38 @@
               tag, content, and an end tag.
             </div>
           </div>
+        </section>
+        <section id="document-structure">
+          <h2>HTML Document Structure</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">The &lt;html&gt; Element</div>
+            <div class="doc-content">
+              The <code>&lt;html&gt;</code> element is the root of every HTML
+              document. It wraps all content, including the head and body
+              sections.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">The &lt;head&gt; Element</div>
+            <div class="doc-content">
+              The <code>&lt;head&gt;</code> element contains meta-information
+              about the document, such as the title, character encoding,
+              stylesheets, and scripts.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">The &lt;body&gt; Element</div>
+            <div class="doc-content">
+              The <code>&lt;body&gt;</code> element holds all the visible
+              content of the webpage—headings, paragraphs, images, links, and
+              more.
+            </div>
+          </div>
+        </section>
+        <section id="elements">
           <div class="doc-topic">
             <div class="doc-title">Block vs Inline Elements</div>
             <div class="doc-content">
@@ -37,6 +97,31 @@
             <div class="doc-content">
               Examples: &lt;div&gt;, &lt;p&gt;, &lt;span&gt;, &lt;a&gt;,
               &lt;h1&gt;–&lt;h6&gt;, &lt;ul&gt;, &lt;li&gt;, etc.
+            </div>
+          </div>
+        </section>
+        <section id="semantics">
+          <h2>Semantics</h2>
+          <div class="doc-topic">
+            <div class="doc-title">What are semantic elements?</div>
+            <div class="doc-content">
+              Semantic elements clearly describe their meaning in a human- and
+              machine-readable way (e.g., &lt;header&gt;, &lt;footer&gt;,
+              &lt;main&gt;, &lt;article&gt;).
+            </div>
+          </div>
+          <div class="doc-topic">
+            <div class="doc-title">Benefits of Semantic HTML</div>
+            <div class="doc-content">
+              Improves accessibility, SEO, and code readability by providing
+              meaningful structure.
+            </div>
+          </div>
+          <div class="doc-topic">
+            <div class="doc-title">Common Semantic Tags</div>
+            <div class="doc-content">
+              &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;,
+              &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;.
             </div>
           </div>
         </section>
@@ -64,6 +149,189 @@
             </div>
           </div>
         </section>
+        <section id="text-elements">
+          <h2>Text Elements</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">Headings (&lt;h1&gt;–&lt;h6&gt;)</div>
+            <div class="doc-content">
+              HTML provides six levels of headings:
+              <code>&lt;h1&gt;</code> (most important) to
+              <code>&lt;h6&gt;</code> (least). They help structure the content
+              hierarchically.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Paragraphs (&lt;p&gt;)</div>
+            <div class="doc-content">
+              The <code>&lt;p&gt;</code> element represents a paragraph of text.
+              Browsers add space above and below paragraphs automatically.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Bold and Emphasis</div>
+            <div class="doc-content">
+              Use <code>&lt;strong&gt;</code> for strong importance (usually
+              bold) and <code>&lt;em&gt;</code> for emphasized text (usually
+              italic). Avoid using <code>&lt;b&gt;</code> or
+              <code>&lt;i&gt;</code> for meaning.
+            </div>
+          </div>
+        </section>
+        <section id="html-lists">
+          <h2>Lists</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">Unordered Lists (&lt;ul&gt;)</div>
+            <div class="doc-content">
+              An unordered list (<code>&lt;ul&gt;</code>) displays bullet
+              points. Each item is placed in a <code>&lt;li&gt;</code> (list
+              item) element.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Ordered Lists (&lt;ol&gt;)</div>
+            <div class="doc-content">
+              Ordered lists (<code>&lt;ol&gt;</code>) display items in a
+              numbered sequence. Like unordered lists, each item uses
+              <code>&lt;li&gt;</code>.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Definition Lists (&lt;dl&gt;)</div>
+            <div class="doc-content">
+              A definition list uses <code>&lt;dl&gt;</code> with
+              <code>&lt;dt&gt;</code> (definition term) and
+              <code>&lt;dd&gt;</code> (definition description). Useful for
+              glossaries or terms.
+            </div>
+          </div>
+        </section>
+        <section id="html-links">
+          <h2>Links</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">The &lt;a&gt; Tag</div>
+            <div class="doc-content">
+              The <code>&lt;a&gt;</code> (anchor) element defines a hyperlink.
+              Use the <code>href</code> attribute to specify the destination
+              URL. <br />Example:
+              <code>&lt;a href="https://example.com"&gt;Visit&lt;/a&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Opening Links in a New Tab</div>
+            <div class="doc-content">
+              Add <code>target="_blank"</code> to an anchor to open the link in
+              a new browser tab. <br />Example:
+              <code>&lt;a href="..." target="_blank"&gt;New Tab&lt;/a&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Linking to Page Sections</div>
+            <div class="doc-content">
+              Use <code>#id</code> in the <code>href</code> to jump to an
+              element with that ID on the same page. <br />Example:
+              <code>&lt;a href="#footer"&gt;Go to Footer&lt;/a&gt;</code>
+            </div>
+          </div>
+        </section>
+        <section id="html-media">
+          <h2>Images and Media</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">Inserting Images</div>
+            <div class="doc-content">
+              Use the <code>&lt;img&gt;</code> tag with <code>src</code> and
+              <code>alt</code> attributes to embed an image. <br />Example:
+              <code>&lt;img src="image.jpg" alt="Description"&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Alt Text</div>
+            <div class="doc-content">
+              The <code>alt</code> attribute provides alternative text if the
+              image can't load. It also helps with accessibility and SEO.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Embedding Video</div>
+            <div class="doc-content">
+              Use the <code>&lt;video&gt;</code> element with a
+              <code>src</code> or <code>&lt;source&gt;</code> inside it.
+              <br />Example:
+              <code>
+                &lt;video controls&gt;<br />
+                &nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br />
+                &nbsp;&nbsp;Your browser does not support video.<br />
+                &lt;/video&gt;
+              </code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Embedding Audio</div>
+            <div class="doc-content">
+              Use the <code>&lt;audio&gt;</code> tag with
+              <code>controls</code> to include sound clips. <br />Example:
+              <code>
+                &lt;audio controls&gt;<br />
+                &nbsp;&nbsp;&lt;source src="sound.mp3" type="audio/mpeg"&gt;<br />
+                &nbsp;&nbsp;Your browser does not support audio.<br />
+                &lt;/audio&gt;
+              </code>
+            </div>
+          </div>
+        </section>
+        <section id="html-tables">
+          <h2>Tables</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">Creating a Table</div>
+            <div class="doc-content">
+              Tables are created using the <code>&lt;table&gt;</code> element
+              with nested rows and cells:
+              <code>
+                &lt;table&gt;<br />
+                &nbsp;&nbsp;&lt;tr&gt;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 1&lt;/td&gt;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 2&lt;/td&gt;<br />
+                &nbsp;&nbsp;&lt;/tr&gt;<br />
+                &lt;/table&gt;
+              </code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Table Headers</div>
+            <div class="doc-content">
+              Use <code>&lt;th&gt;</code> inside <code>&lt;tr&gt;</code> to
+              create header cells. These are usually bold and centered.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Table Structure Elements</div>
+            <div class="doc-content">
+              HTML tables can include:
+              <ul>
+                <li><code>&lt;thead&gt;</code> – Table header group</li>
+                <li><code>&lt;tbody&gt;</code> – Table body rows</li>
+                <li><code>&lt;tfoot&gt;</code> – Table footer group</li>
+              </ul>
+              These help organize and style tables more cleanly.
+            </div>
+          </div>
+        </section>
+
         <section id="forms">
           <h2>Forms</h2>
           <div class="doc-topic">
@@ -85,31 +353,6 @@
             <div class="doc-content">
               Form controls include &lt;input&gt;, &lt;textarea&gt;,
               &lt;select&gt;, &lt;button&gt; and others.
-            </div>
-          </div>
-        </section>
-        <section id="semantics">
-          <h2>Semantics</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What are semantic elements?</div>
-            <div class="doc-content">
-              Semantic elements clearly describe their meaning in a human- and
-              machine-readable way (e.g., &lt;header&gt;, &lt;footer&gt;,
-              &lt;main&gt;, &lt;article&gt;).
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Benefits of Semantic HTML</div>
-            <div class="doc-content">
-              Improves accessibility, SEO, and code readability by providing
-              meaningful structure.
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Common Semantic Tags</div>
-            <div class="doc-content">
-              &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;,
-              &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;.
             </div>
           </div>
         </section>
