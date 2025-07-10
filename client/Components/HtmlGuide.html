@@ -10,9 +10,18 @@
       <nav>
         <ul>
           <li><a href="#elements">Elements</a></li>
-          <li><a href="#attributes">Attributes</a></li>
-          <li><a href="#forms">Forms</a></li>
           <li><a href="#semantics">Semantics</a></li>
+          <li><a href="#html-links">Links</a></li>
+          <li><a href="#html-media">Images & Media</a></li>
+          <li><a href="#html-tables">Tables</a></li>
+          <li><a href="#html-forms">Forms & Inputs</a></li>
+          <li><a href="#semantic-html">Semantic HTML</a></li>
+          <li><a href="#html-attributes">Attributes</a></li>
+          <li><a href="#meta-tags">Meta & Head</a></li>
+          <li><a href="#inline-block-elements">Inline vs Block</a></li>
+          <li><a href="#comments-and-entities">Comments & Escaping</a></li>
+          <li><a href="#html-embeds">iframes & Embeds</a></li>
+          <li><a href="#html5-apis">HTML5 APIs</a></li>
         </ul>
       </nav>
       <main>
@@ -331,28 +340,350 @@
             </div>
           </div>
         </section>
+        <section id="html-forms">
+          <h2>Forms and Inputs</h2>
 
-        <section id="forms">
-          <h2>Forms</h2>
           <div class="doc-topic">
             <div class="doc-title">The &lt;form&gt; Element</div>
             <div class="doc-content">
-              The &lt;form&gt; element is used to collect user input and submit
-              it to a server.
+              The <code>&lt;form&gt;</code> tag defines an HTML form used to
+              collect user input. It commonly uses <code>method</code> (e.g.,
+              "get" or "post") and <code>action</code> (where to send data).
             </div>
           </div>
+
           <div class="doc-topic">
             <div class="doc-title">Input Types</div>
             <div class="doc-content">
-              Input types include text, password, email, checkbox, radio,
-              submit, and more.
+              <code>&lt;input&gt;</code> can accept various types:
+              <ul>
+                <li><code>text</code></li>
+                <li><code>email</code></li>
+                <li><code>password</code></li>
+                <li><code>checkbox</code></li>
+                <li><code>radio</code></li>
+                <li><code>submit</code></li>
+                <li>
+                  <code>file</code>, <code>number</code>, <code>date</code>,
+                  etc.
+                </li>
+              </ul>
             </div>
           </div>
+
           <div class="doc-topic">
             <div class="doc-title">Form Controls</div>
             <div class="doc-content">
-              Form controls include &lt;input&gt;, &lt;textarea&gt;,
-              &lt;select&gt;, &lt;button&gt; and others.
+              Common form elements include:
+              <ul>
+                <li><code>&lt;input&gt;</code> — for basic fields</li>
+                <li><code>&lt;textarea&gt;</code> — for multi-line input</li>
+                <li>
+                  <code>&lt;select&gt;</code> with <code>&lt;option&gt;</code> —
+                  for dropdowns
+                </li>
+                <li>
+                  <code>&lt;button&gt;</code> — for actions like submit/reset
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Labels and Accessibility</div>
+            <div class="doc-content">
+              Use <code>&lt;label&gt;</code> with <code>for="inputID"</code> to
+              make forms accessible and improve usability. <br />Example:
+              <code
+                >&lt;label for="email"&gt;Email:&lt;/label&gt;&lt;input
+                id="email"&gt;</code
+              >
+            </div>
+          </div>
+        </section>
+        <section id="semantic-html">
+          <h2>Semantic HTML</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What is Semantic HTML?</div>
+            <div class="doc-content">
+              Semantic HTML uses meaningful tags that describe the purpose of
+              the content, not just how it looks. This improves accessibility,
+              SEO, and code clarity.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Common Semantic Tags</div>
+            <div class="doc-content">
+              These tags provide structure and meaning:
+              <ul>
+                <li><code>&lt;header&gt;</code> — for introductory content</li>
+                <li><code>&lt;nav&gt;</code> — for navigation links</li>
+                <li><code>&lt;main&gt;</code> — for the main content</li>
+                <li><code>&lt;section&gt;</code> — for grouped content</li>
+                <li>
+                  <code>&lt;article&gt;</code> — for independent, reusable
+                  content
+                </li>
+                <li>
+                  <code>&lt;aside&gt;</code> — for tangential info or sidebars
+                </li>
+                <li>
+                  <code>&lt;footer&gt;</code> — for page or section footers
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Why Use Semantic Tags?</div>
+            <div class="doc-content">
+              - They help screen readers interpret content properly.<br />
+              - They make your HTML easier to read and maintain.<br />
+              - They improve how search engines understand your page layout.
+            </div>
+          </div>
+        </section>
+        <section id="html-attributes">
+          <h2>HTML Attributes</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What are Attributes?</div>
+            <div class="doc-content">
+              Attributes provide extra information about elements. They are
+              added inside the opening tag and usually follow the
+              <code>name="value"</code> pattern. <br />Example:
+              <code>&lt;a href="https://example.com"&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Global Attributes</div>
+            <div class="doc-content">
+              These can be used on any HTML element:
+              <ul>
+                <li><code>id</code> — uniquely identifies an element</li>
+                <li><code>class</code> — applies CSS or JS hooks</li>
+                <li><code>style</code> — inline CSS</li>
+                <li><code>title</code> — tooltip text</li>
+                <li><code>hidden</code> — hides the element</li>
+                <li>
+                  <code>data-*</code> — custom attributes for storing data
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Boolean Attributes</div>
+            <div class="doc-content">
+              Boolean attributes don’t require a value. Their presence alone
+              implies "true".
+              <br />Examples: <code>checked</code>, <code>disabled</code>,
+              <code>required</code>, <code>readonly</code>
+            </div>
+          </div>
+        </section>
+        <section id="meta-tags">
+          <h2>Meta Tags &amp; The &lt;head&gt; Element</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What is the &lt;head&gt; Element?</div>
+            <div class="doc-content">
+              The <code>&lt;head&gt;</code> contains metadata about the
+              document: not visible to users, but crucial for the browser and
+              search engines.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Essential Meta Tags</div>
+            <div class="doc-content">
+              - <code>&lt;meta charset="UTF-8"&gt;</code> — Sets the character
+              encoding<br />
+              -
+              <code
+                >&lt;meta name="viewport" content="width=device-width,
+                initial-scale=1.0"&gt;</code
+              >
+              — Controls responsiveness on mobile<br />
+              -
+              <code
+                >&lt;meta name="description" content="Page
+                description"&gt;</code
+              >
+              — Helps with SEO<br />
+              - <code>&lt;meta name="author" content="Your Name"&gt;</code> —
+              Credits the author
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Other Common Head Elements</div>
+            <div class="doc-content">
+              - <code>&lt;title&gt;</code> — Sets the tab name<br />
+              - <code>&lt;link rel="stylesheet"&gt;</code> — Links external
+              stylesheets<br />
+              - <code>&lt;script&gt;</code> — Links or contains JavaScript<br />
+              - <code>&lt;base&gt;</code> — Sets a base URL for all relative
+              URLs
+            </div>
+          </div>
+        </section>
+        <section id="inline-block-elements">
+          <h2>Inline vs Block Elements</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">Block Elements</div>
+            <div class="doc-content">
+              Block elements take up the full width of their container and
+              always start on a new line.
+              <br /><strong>Examples:</strong> <code>&lt;div&gt;</code>,
+              <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> to
+              <code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>,
+              <code>&lt;table&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Inline Elements</div>
+            <div class="doc-content">
+              Inline elements do not start on a new line and only take up as
+              much width as necessary.
+              <br /><strong>Examples:</strong> <code>&lt;span&gt;</code>,
+              <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>,
+              <code>&lt;em&gt;</code>, <code>&lt;img&gt;</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Inline-Block Elements</div>
+            <div class="doc-content">
+              These behave like inline elements (flow inline) but allow you to
+              set width, height, margin, etc., like block elements. Often used
+              in CSS.
+              <br /><strong>Tip:</strong> Apply with
+              <code>display: inline-block</code> in CSS.
+            </div>
+          </div>
+        </section>
+        <section id="comments-and-entities">
+          <h2>Comments & Escaping Characters</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">HTML Comments</div>
+            <div class="doc-content">
+              Use comments to explain or hide parts of your HTML code.<br />
+              <strong>Syntax:</strong>
+              <code>&lt;!-- This is a comment --&gt;</code><br />
+              Comments are not shown in the browser and are helpful for
+              documentation or debugging.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Escaping Special Characters</div>
+            <div class="doc-content">
+              Some characters must be "escaped" in HTML to be displayed
+              properly:<br />
+              <ul>
+                <li><code>&amp;amp;</code> → &amp;</li>
+                <li><code>&amp;lt;</code> → &lt;</li>
+                <li><code>&amp;gt;</code> → &gt;</li>
+                <li><code>&amp;quot;</code> → "</li>
+                <li><code>&amp;nbsp;</code> → non-breaking space</li>
+              </ul>
+              Use these when writing code examples or displaying symbols.
+            </div>
+          </div>
+        </section>
+        <section id="html-embeds">
+          <h2>iframes &amp; Embedding Content</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What is an &lt;iframe&gt;?</div>
+            <div class="doc-content">
+              The <code>&lt;iframe&gt;</code> tag embeds another HTML page
+              inside the current one. <br />Example:
+              <code>
+                &lt;iframe src="https://example.com" width="600"
+                height="400"&gt;&lt;/iframe&gt;
+              </code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Security Considerations</div>
+            <div class="doc-content">
+              Using <code>&lt;iframe&gt;</code> can raise security issues. Use
+              the <code>sandbox</code> attribute to restrict behavior and
+              enhance safety. <br />Example:
+              <code>
+                &lt;iframe src="..." sandbox="allow-scripts"&gt;&lt;/iframe&gt;
+              </code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Embedding YouTube Videos</div>
+            <div class="doc-content">
+              You can use an iframe to embed YouTube content directly:<br />
+              <code>
+                &lt;iframe width="560" height="315"
+                src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
+                allowfullscreen&gt;&lt;/iframe&gt;
+              </code>
+            </div>
+          </div>
+        </section>
+        <section id="html5-apis">
+          <h2>HTML5 APIs (Overview)</h2>
+
+          <div class="doc-topic">
+            <div class="doc-title">What Are HTML5 APIs?</div>
+            <div class="doc-content">
+              HTML5 introduced built-in browser APIs that work closely with
+              JavaScript to add powerful features to web pages. These APIs
+              extend HTML beyond markup.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Geolocation API</div>
+            <div class="doc-content">
+              Allows web applications to access the user's physical location
+              (with permission). Often used in maps and weather apps.
+              <br />Accessed using: <code>navigator.geolocation</code>
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Web Storage API</div>
+            <div class="doc-content">
+              Lets you store data in the browser:
+              <ul>
+                <li>
+                  <strong>localStorage</strong> — persists even after closing
+                  the browser
+                </li>
+                <li>
+                  <strong>sessionStorage</strong> — lasts until the tab is
+                  closed
+                </li>
+              </ul>
+              Both use key-value pairs and are more secure & flexible than
+              cookies.
+            </div>
+          </div>
+
+          <div class="doc-topic">
+            <div class="doc-title">Canvas API</div>
+            <div class="doc-content">
+              The <code>&lt;canvas&gt;</code> element allows for dynamic,
+              scriptable rendering of graphics (charts, games, etc.) using
+              JavaScript. <br />Example use: drawing 2D shapes, graphs, or
+              visualizations.
             </div>
           </div>
         </section>

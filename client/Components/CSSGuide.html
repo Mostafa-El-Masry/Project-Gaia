@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS Guide</title>
+  <link rel="stylesheet" href="CSSGuide.css" />
+</head>
+<body>
+  <div class="docs-container">
+    <nav>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#selectors">Selectors</a></li>
+        <li><a href="#box-model">Box Model</a></li>
+        <li><a href="#positioning">Positioning</a></li>
+        <li><a href="#flexbox">Flexbox</a></li>
+        <li><a href="#grid">CSS Grid</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#media">Media Queries</a></li>
+        <li><a href="#variables">Custom Properties</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="intro">
+        <h2>Introduction to CSS</h2>
+        <div class="doc-topic">
+          <div class="doc-title">What is CSS?</div>
+          <div class="doc-content">
+            CSS stands for Cascading Style Sheets. It controls how HTML elements are displayed, including layout, colors, fonts, and spacing.
+          </div>
+        </div>
+        <div class="doc-topic">
+          <div class="doc-title">How CSS Works</div>
+          <div class="doc-content">
+            CSS applies rules to HTML using selectors. The browser interprets these styles and applies them in a cascading order.
+          </div>
+        </div>
+      </section>
+
+      <section id="selectors">
+        <h2>Selectors</h2>
+        <div class="doc-topic">
+          <div class="doc-title">Basic Selectors</div>
+          <div class="doc-content">
+            <ul>
+              <li><code>*</code> — universal selector</li>
+              <li><code>p</code> — element selector</li>
+              <li><code>.class</code> — class selector</li>
+              <li><code>#id</code> — ID selector</li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-topic">
+          <div class="doc-title">Combinators</div>
+          <div class="doc-content">
+            <ul>
+              <li><code>div p</code> — descendant</li>
+              <li><code>div > p</code> — direct child</li>
+              <li><code>div + p</code> — adjacent sibling</li>
+              <li><code>div ~ p</code> — general sibling</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="box-model">
+        <h2>Box Model</h2>
+        <div class="doc-topic">
+          <div class="doc-title">What is the Box Model?</div>
+          <div class="doc-content">
+            Every HTML element is a rectangular box composed of: <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, and <strong>margin</strong>.
+          </div>
+        </div>
+        <div class="doc-topic">
+          <div class="doc-title">Visual Representation</div>
+          <div class="doc-content">
+            <code>
+              +-----------------------+<br/>
+              |      margin           |<br/>
+              |  +-----------------+  |<br/>
+              |  |     border      |  |<br/>
+              |  |  +-----------+  |  |<br/>
+              |  |  | padding  |  |  |<br/>
+              |  |  |  content |  |  |<br/>
+              |  |  +-----------+  |  |<br/>
+              |  +-----------------+  |<br/>
+              +-----------------------+
+            </code>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
