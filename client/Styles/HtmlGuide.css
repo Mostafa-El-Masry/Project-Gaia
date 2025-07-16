@@ -21,6 +21,12 @@ html {
   overflow: visible;
 }
 
+.guide-content {
+  flex: 1;
+  margin-left: 270px;
+  padding: 32px 48px;
+  min-width: 0;
+}
 
 /* Sidebar Navigation - Make selector more specific to prevent conflicts */
 .docs-container > nav {
@@ -108,11 +114,6 @@ main section > h2 {
 
 
 /* GAIA Glassy White Translucent Styles */
-
-
-
-
-
 
 
 .guide-content {
