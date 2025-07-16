@@ -21,32 +21,30 @@ html {
 
 /* Sidebar Navigation - Make selector more specific to prevent conflicts */
 .docs-container > nav {
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
+  position: relative;
+  top: 40px;
+  left: 0;
   width: 250px;
-  min-width: 200px;
-  max-width: 300px;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.56);
-  box-shadow: 2px 0 32px 0 rgba(145, 158, 171, 0.08);
-  border-right: 1px solid rgba(220, 224, 236, 0.45);
-  padding-top: 48px;
-  padding-left: 0;
+  height: auto;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 2px 0 32px 0 rgba(145, 158, 171, 0.10);
+  border-radius: 24px;
+  border: 1px solid rgba(220, 224, 236, 0.35);
+  padding: 32px 0 32px 0;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
 .docs-container > nav ul {
-  display: flex;
-  flex-direction: column; /* Ensure vertical stacking of nav links */
   list-style: none;
   margin: 0;
   padding: 0 0 32px 0;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .docs-container > nav li {
@@ -58,13 +56,12 @@ html {
 .docs-container > nav a {
   display: block;
   width: 100%;
-  box-sizing: border-box;
-  padding: 18px 36px 18px 32px;
+  padding: 16px 32px;
   color: #232943;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.08rem;
-  border-radius: 0 24px 24px 0;
+  border-radius: 0 18px 18px 0;
   transition: background 0.18s, color 0.18s;
 }
 
@@ -83,23 +80,7 @@ html {
   /* No change needed unless you see overlap */
 }
 
-@media (max-width: 700px) {
-  .docs-container {
-    flex-direction: column;
-  }
-  .docs-container nav {
-    width: 100vw;
-    min-width: 0;
-    max-width: none;
-    padding-top: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(220, 224, 236, 0.45);
-  }
-  .docs-container main {
-    margin-left: 0;
-    padding: 24px 8px 24px 8px;
-  }
-}
+
 
 /* Headings */
 main section > h2 {
@@ -141,54 +122,10 @@ main section > h2 {
   overflow: visible;
 }
 
-.guide-sidebar {
-  position: fixed;
-  top: 40px;
-  left: 0;
-  width: 250px;
-  height: calc(100vh - 80px);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: 2px 0 32px 0 rgba(145, 158, 171, 0.10);
-  border-radius: 24px;
-  border: 1px solid rgba(220, 224, 236, 0.35);
-  padding: 32px 0 32px 0;
-  overflow-y: auto;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
 
-.guide-sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 32px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.guide-sidebar li {
-  width: 100%;
-}
 
-.guide-sidebar a {
-  display: block;
-  width: 100%;
-  padding: 16px 32px;
-  color: #232943;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.08rem;
-  border-radius: 0 18px 18px 0;
-  transition: background 0.18s, color 0.18s;
-}
 
-.guide-sidebar a:hover,
-.guide-sidebar a:focus {
-  background: rgba(180, 199, 255, 0.18);
-  color: #3b59e6;
-}
 
 .guide-content {
   flex: 1;
@@ -225,17 +162,6 @@ main section > h2 {
   position: relative;
 }
 
-.doc-title::after {
-  content: "▼";
-  float: right;
-  font-size: 0.9em;
-  color: #8da6e3;
-  transition: transform 0.28s cubic-bezier(.77,0,.18,1);
-}
-.doc-topic[open] .doc-title::after,
-.doc-title.active::after {
-  transform: rotate(-180deg);
-}
 
 /* Doc Content Box (Hidden by default) */
 .doc-content {
@@ -269,6 +195,25 @@ main section > h2 {
     padding-right: 14px;
   }
 }
+
+@media (max-width: 700px) {
+  .docs-container {
+    flex-direction: column;
+  }
+  .docs-container nav {
+    width: 100vw;
+    min-width: 0;
+    max-width: none;
+    padding-top: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(220, 224, 236, 0.45);
+  }
+  .docs-container main {
+    margin-left: 0;
+    padding: 24px 8px 24px 8px;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
