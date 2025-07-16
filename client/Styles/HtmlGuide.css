@@ -6,18 +6,21 @@ html {
   scroll-behavior: smooth;
 }
 
-
 .docs-container {
   display: flex; /* Use flex to align sidebar and main horizontally */
   position: relative;
   width: 90vw;
-  margin: 32px auto;
   background: linear-gradient(120deg, #f5faff 0%, #e3e9f7 100%);
   border-radius: 32px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  overflow: hidden;
   min-height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px auto;
+  padding: 32px;
+  overflow: visible;
 }
+
 
 /* Sidebar Navigation - Make selector more specific to prevent conflicts */
 .docs-container > nav {
@@ -106,21 +109,6 @@ main section > h2 {
 
 /* GAIA Glassy White Translucent Styles */
 
-.guide-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 32px;
-  background: linear-gradient(120deg, #f5faff 0%, #e3e9f7 100%);
-  border-radius: 32px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  min-height: 80vh;
-  position: relative;
-  overflow: visible;
-}
 
 
 
