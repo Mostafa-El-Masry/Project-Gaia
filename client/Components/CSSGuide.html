@@ -2,236 +2,472 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CSS Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAIA - CSS Guide</title>
     <link rel="stylesheet" href="/Styles/CSSGuide.css" />
   </head>
-  <body>
-    <div class="docs-container">
-      <nav>
+  <body id="css-guide-page">
+    <!-- The rest of your HTML content remains the same -->
+    <header id="hero">
+      <h1>CSS Guide</h1>
+      <p>Master the art of styling your web interfaces.</p>
+    </header>
+
+    <nav id="css-nav">
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#selectors">Selectors</a></li>
+        <li><a href="#colors-units">Colors & Units</a></li>
+        <li><a href="#box-model">Box Model</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#positioning">Positioning</a></li>
+        <li><a href="#flexbox">Flexbox</a></li>
+        <li><a href="#grid">Grid</a></li>
+        <li><a href="#transitions-animations">Transitions & Animations</a></li>
+        <li><a href="#responsive-design">Responsive Design</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li>
+          <a href="#pseudo-classes-elements"
+            >Pseudo-classes & Pseudo-elements</a
+          >
+        </li>
+        <li><a href="#advanced-techniques">Advanced Techniques</a></li>
+        <li><a href="#best-practices">Best Practices</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="introduction">
+        <h2>Introduction to CSS</h2>
+        <p>
+          CSS, or Cascading Style Sheets, is the language that describes the
+          style of an HTML document. It controls the visual presentation,
+          including layout, colors, fonts, spacing, and responsiveness across
+          devices.
+        </p>
+        <p>
+          By separating content (HTML) from presentation (CSS), developers can
+          maintain cleaner code and apply consistent styles across multiple
+          pages.
+        </p>
+      </section>
+
+      <section id="selectors">
+        <h2>Selectors</h2>
+        <p>
+          CSS selectors are patterns used to target and style specific HTML
+          elements. They allow you to apply styles based on element names,
+          classes, IDs, attributes, and relationships between elements.
+        </p>
+
         <ul>
-          <li><a href="#intro">Introduction</a></li>
-          <li><a href="#selectors">Selectors</a></li>
-          <li><a href="#box-model">Box Model</a></li>
-          <li><a href="#positioning">Positioning</a></li>
-          <li><a href="#flexbox">Flexbox</a></li>
-          <li><a href="#grid">CSS Grid</a></li>
-          <li><a href="#typography">Typography</a></li>
-          <li><a href="#colors">Colors</a></li>
-          <li><a href="#media">Media Queries</a></li>
-          <li><a href="#variables">Custom Properties</a></li>
+          <li>
+            <strong>Element Selector:</strong> Targets elements by tag name.
+            Example: <code>p</code> targets all paragraphs.
+          </li>
+          <li>
+            <strong>Class Selector:</strong> Targets elements by class. Example:
+            <code>.button</code> targets elements with class "button".
+          </li>
+          <li>
+            <strong>ID Selector:</strong> Targets a unique element by ID.
+            Example: <code>#header</code>.
+          </li>
+          <li>
+            <strong>Attribute Selector:</strong> Targets elements with specific
+            attributes. Example: <code>input[type="text"]</code>.
+          </li>
+          <li>
+            <strong>Descendant Selector:</strong> Targets elements inside
+            another. Example: <code>div p</code>.
+          </li>
+          <li>
+            <strong>Child Selector:</strong> Direct child elements. Example:
+            <code>ul > li</code>.
+          </li>
+          <li>
+            <strong>Group Selector:</strong> Style multiple selectors together.
+            Example: <code>h1, h2, h3</code>.
+          </li>
         </ul>
-      </nav>
-      <main>
-        <section id="intro">
-          <h2>Introduction to CSS</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What is CSS?</div>
-            <div class="doc-content">
-              CSS stands for Cascading Style Sheets. It controls how HTML
-              elements are displayed, including layout, colors, fonts, and
-              spacing.
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">How CSS Works</div>
-            <div class="doc-content">
-              CSS applies rules to HTML using selectors. The browser interprets
-              these styles and applies them in a cascading order.
-            </div>
-          </div>
-        </section>
+      </section>
 
-        <section id="selectors">
-          <h2>Selectors</h2>
-          <div class="doc-topic">
-            <div class="doc-title">Basic Selectors</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>*</code> — universal selector</li>
-                <li><code>p</code> — element selector</li>
-                <li><code>.class</code> — class selector</li>
-                <li><code>#id</code> — ID selector</li>
-              </ul>
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Combinators</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>div p</code> — descendant</li>
-                <li><code>div > p</code> — direct child</li>
-                <li><code>div + p</code> — adjacent sibling</li>
-                <li><code>div ~ p</code> — general sibling</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section id="colors-units">
+        <h2>Colors & Units</h2>
+        <p>
+          CSS provides various ways to define colors and units for styling
+          elements, allowing precise control over the appearance and layout.
+        </p>
 
-        <section id="box-model">
-          <h2>Box Model</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What is the Box Model?</div>
-            <div class="doc-content">
-              Every HTML element is a rectangular box composed of:
-              <strong>content</strong>, <strong>padding</strong>,
-              <strong>border</strong>, and <strong>margin</strong>.
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Visual Representation</div>
-            <div class="doc-content">
-              <code>
-                +-----------------------+<br />
-                | margin |<br />
-                | +-----------------+ |<br />
-                | | border | |<br />
-                | | +-----------+ | |<br />
-                | | | padding | | |<br />
-                | | | content | | |<br />
-                | | +-----------+ | |<br />
-                | +-----------------+ |<br />
-                +-----------------------+
-              </code>
-            </div>
-          </div>
-        </section>
-        <section id="positioning">
-          <h2>Positioning</h2>
-          <div class="doc-topic">
-            <div class="doc-title">Position Property</div>
-            <div class="doc-content">
-              The <code>position</code> property defines how an element is
-              placed:
-              <ul>
-                <li><code>static</code> (default)</li>
-                <li><code>relative</code> — positioned relative to itself</li>
-                <li>
-                  <code>absolute</code> — positioned relative to the nearest
-                  positioned ancestor
-                </li>
-                <li>
-                  <code>fixed</code> — positioned relative to the viewport
-                </li>
-                <li>
-                  <code>sticky</code> — toggles between relative and fixed
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <h3>Color Values:</h3>
+        <ul>
+          <li>
+            <strong>Named Colors:</strong> Example: <code>red</code>,
+            <code>blue</code>, <code>green</code>.
+          </li>
+          <li>
+            <strong>Hexadecimal:</strong> Example: <code>#ff0000</code> for red.
+          </li>
+          <li><strong>RGB:</strong> Example: <code>rgb(255, 0, 0)</code>.</li>
+          <li>
+            <strong>RGBA:</strong> Adds transparency:
+            <code>rgba(255, 0, 0, 0.5)</code>.
+          </li>
+          <li>
+            <strong>HSL:</strong> Hue, Saturation, Lightness:
+            <code>hsl(0, 100%, 50%)</code>.
+          </li>
+        </ul>
 
-        <section id="flexbox">
-          <h2>Flexbox</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What is Flexbox?</div>
-            <div class="doc-content">
-              Flexbox is a layout model designed for arranging items in a row or
-              column efficiently. Parent uses <code>display: flex</code>.
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Key Properties</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>justify-content</code>: align items horizontally</li>
-                <li><code>align-items</code>: align items vertically</li>
-                <li><code>flex-direction</code>: row, column</li>
-                <li><code>flex-wrap</code>: wrap items</li>
-                <li><code>gap</code>: spacing between items</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <h3>Units:</h3>
+        <ul>
+          <li><strong>Pixels (px):</strong> Absolute size unit.</li>
+          <li><strong>Percent (%):</strong> Relative to the parent element.</li>
+          <li><strong>Em:</strong> Relative to the font-size of the parent.</li>
+          <li>
+            <strong>Rem:</strong> Relative to the root element’s font-size.
+          </li>
+          <li>
+            <strong>Viewport Units:</strong> <code>vw</code> (viewport width),
+            <code>vh</code> (viewport height).
+          </li>
+        </ul>
+      </section>
+      <section id="box-model">
+        <h2>Box Model</h2>
+        <p>
+          The CSS Box Model describes how elements are structured and spaced in
+          a page layout. Each element is represented as a rectangular box
+          composed of the following areas:
+        </p>
 
-        <section id="grid">
-          <h2>CSS Grid</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What is Grid?</div>
-            <div class="doc-content">
-              CSS Grid is a powerful 2D layout system using
-              <code>display: grid</code>. It allows defining rows and columns
-              for precise control.
-            </div>
-          </div>
-          <div class="doc-topic">
-            <div class="doc-title">Grid Properties</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>grid-template-columns</code> / <code>rows</code></li>
-                <li><code>grid-gap</code></li>
-                <li><code>grid-column</code> / <code>row</code> (child)</li>
-                <li>
-                  <code>place-items</code>, <code>justify-items</code>,
-                  <code>align-items</code>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <ul>
+          <li>
+            <strong>Content:</strong> The innermost part where text or other
+            content appears.
+          </li>
+          <li>
+            <strong>Padding:</strong> Space between the content and the border.
+            Adds inner spacing.
+          </li>
+          <li>
+            <strong>Border:</strong> The outline surrounding the padding (or
+            content if no padding is set).
+          </li>
+          <li>
+            <strong>Margin:</strong> Space outside the border that separates the
+            element from other elements.
+          </li>
+        </ul>
 
-        <section id="typography">
-          <h2>Typography</h2>
-          <div class="doc-topic">
-            <div class="doc-title">Font Properties</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>font-family</code></li>
-                <li><code>font-size</code></li>
-                <li><code>font-weight</code></li>
-                <li><code>line-height</code></li>
-                <li><code>letter-spacing</code></li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <p>
+          Understanding the box model is crucial for proper element sizing and
+          layout control. Total width of an element is calculated as:
+        </p>
 
-        <section id="colors">
-          <h2>Colors</h2>
-          <div class="doc-topic">
-            <div class="doc-title">Color Values</div>
-            <div class="doc-content">
-              <ul>
-                <li><code>color</code> — text color</li>
-                <li><code>background-color</code></li>
-                <li>
-                  Formats: named (e.g. red), hex (<code>#ff0000</code>), rgb,
-                  rgba, hsl, hsla
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <pre>
+          Total Width = content width + padding + border + margin
+              </pre
+        >
+      </section>
+      <section id="typography">
+        <h2>Typography</h2>
+        <p>
+          Typography in CSS controls the style, appearance, and readability of
+          text on a webpage. CSS offers various properties to customize fonts
+          and text layout.
+        </p>
 
-        <section id="media">
-          <h2>Media Queries</h2>
-          <div class="doc-topic">
-            <div class="doc-title">What Are Media Queries?</div>
-            <div class="doc-content">
-              Media queries let you apply styles conditionally based on screen
-              size, resolution, or orientation.
-              <br />Example:
-              <code>
-                @media (max-width: 600px) { body { font-size: 14px; } }
-              </code>
-            </div>
-          </div>
-        </section>
+        <h3>Common Typography Properties:</h3>
+        <ul>
+          <li>
+            <strong>font-family:</strong> Defines the typeface. Example:
+            <code>font-family: Arial, sans-serif;</code>
+          </li>
+          <li>
+            <strong>font-size:</strong> Sets the size of the text. Example:
+            <code>font-size: 16px;</code>
+          </li>
+          <li>
+            <strong>font-weight:</strong> Controls the thickness of the text.
+            Example: <code>font-weight: bold;</code>
+          </li>
+          <li>
+            <strong>line-height:</strong> Adjusts the spacing between lines of
+            text.
+          </li>
+          <li>
+            <strong>letter-spacing:</strong> Controls spacing between
+            characters.
+          </li>
+          <li>
+            <strong>text-align:</strong> Aligns text horizontally. Options:
+            <code>left</code>, <code>right</code>, <code>center</code>,
+            <code>justify</code>.
+          </li>
+          <li>
+            <strong>text-decoration:</strong> Adds styling like underline,
+            overline, or line-through.
+          </li>
+          <li><strong>color:</strong> Sets the text color.</li>
+        </ul>
 
-        <section id="variables">
-          <h2>CSS Variables</h2>
-          <div class="doc-topic">
-            <div class="doc-title">Custom Properties</div>
-            <div class="doc-content">
-              CSS variables are declared with <code>--name</code> and used with
-              <code>var()</code>. <br />Example:
-              <code>
-                :root { --main-color: #333; }<br />
-                body { color: var(--main-color); }
-              </code>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+        <p>
+          Choosing the right typography enhances user experience and
+          accessibility on the web.
+        </p>
+      </section>
+      <section id="positioning">
+        <h2>Positioning</h2>
+        <p>
+          CSS positioning allows you to control the placement of elements on the
+          page. Different positioning schemes help create complex layouts and
+          control stacking order.
+        </p>
+
+        <h3>Position Values:</h3>
+        <ul>
+          <li>
+            <strong>static:</strong> Default position; elements flow naturally
+            in the document.
+          </li>
+          <li>
+            <strong>relative:</strong> Positioned relative to its normal
+            position; can be offset with <code>top</code>, <code>right</code>,
+            <code>bottom</code>, <code>left</code>.
+          </li>
+          <li>
+            <strong>absolute:</strong> Positioned relative to the nearest
+            positioned ancestor (non-static).
+          </li>
+          <li>
+            <strong>fixed:</strong> Positioned relative to the viewport; stays
+            in place during scrolling.
+          </li>
+          <li>
+            <strong>sticky:</strong> Toggles between relative and fixed based on
+            scroll position.
+          </li>
+        </ul>
+
+        <h3>Example Usage:</h3>
+        <pre>
+          position: absolute;
+          top: 20px;
+          left: 50px;
+              </pre
+        >
+
+        <p>
+          Additionally, <strong>z-index</strong> controls the stacking order of
+          overlapping elements.
+        </p>
+      </section>
+      <section id="flexbox">
+        <h2>Flexbox</h2>
+        <p>
+          Flexbox is a CSS layout model that makes it easy to design flexible
+          and responsive layout structures without using floats or positioning.
+        </p>
+
+        <h3>Core Properties:</h3>
+        <ul>
+          <li>
+            <strong>display: flex;</strong> Enables flex context for a
+            container.
+          </li>
+          <li>
+            <strong>flex-direction:</strong> Defines the main axis direction
+            (<code>row</code>, <code>column</code>).
+          </li>
+          <li>
+            <strong>justify-content:</strong> Aligns items along the main axis
+            (e.g., <code>center</code>, <code>space-between</code>).
+          </li>
+          <li>
+            <strong>align-items:</strong> Aligns items along the cross axis
+            (e.g., <code>stretch</code>, <code>center</code>).
+          </li>
+          <li>
+            <strong>flex-wrap:</strong> Allows items to wrap onto multiple
+            lines.
+          </li>
+          <li>
+            <strong>align-self:</strong> Aligns a specific item differently from
+            others.
+          </li>
+        </ul>
+
+        <h3>Example:</h3>
+        <pre>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            </pre
+        >
+
+        <p>
+          Flexbox is ideal for aligning elements in both horizontal and vertical
+          axes within a container.
+        </p>
+      </section>
+      <section id="grid">
+        <h2>Grid</h2>
+        <p>
+          CSS Grid Layout is a powerful system for creating two-dimensional
+          layouts on the web. It allows you to design complex grids with precise
+          placement of items.
+        </p>
+
+        <h3>Core Properties:</h3>
+        <ul>
+          <li>
+            <strong>display: grid;</strong> Establishes a grid layout on a
+            container.
+          </li>
+          <li>
+            <strong>grid-template-columns:</strong> Defines the number and size
+            of columns.
+          </li>
+          <li>
+            <strong>grid-template-rows:</strong> Defines the number and size of
+            rows.
+          </li>
+          <li><strong>gap:</strong> Sets spacing between rows and columns.</li>
+          <li>
+            <strong>grid-column:</strong> Specifies the column span of an item.
+          </li>
+          <li><strong>grid-row:</strong> Specifies the row span of an item.</li>
+          <li>
+            <strong>justify-items / align-items:</strong> Align items within
+            grid cells.
+          </li>
+        </ul>
+
+        <h3>Example:</h3>
+        <pre>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+            </pre
+        >
+
+        <p>
+          Grid layout is ideal for building page layouts, galleries, and
+          dashboards where both rows and columns are needed.
+        </p>
+      </section>
+      <section id="transitions-animations">
+        <h2>Transitions & Animations</h2>
+        <p>
+          CSS Transitions and Animations allow you to add smooth changes and
+          dynamic effects to your web elements, enhancing user experience.
+        </p>
+
+        <h3>Transitions:</h3>
+        <p>
+          Transitions enable smooth changes between property values over time.
+        </p>
+        <pre>
+        .element {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .element:hover {
+            background-color: #3498db;
+        }
+            </pre
+        >
+
+        <h3>Animations:</h3>
+        <p>
+          Animations allow complex, multi-step movements defined using
+          <code>@keyframes</code>.
+        </p>
+        <pre>
+              @keyframes bounce {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-20px); }
+              }
+
+              .element {
+                  animation: bounce 2s infinite;
+              }
+                  </pre
+        >
+
+        <p>Use animations for loading indicators, attention cues, and more.</p>
+      </section>
+      <section id="responsive-design">
+        <h2>Responsive Design</h2>
+        <p>
+          Responsive Design ensures your website looks and works well on all
+          devices, from desktops to mobile phones, by adapting layout and
+          content.
+        </p>
+
+        <h3>Media Queries:</h3>
+        <p>
+          Media queries apply CSS rules based on device characteristics like
+          screen width.
+        </p>
+        <pre>
+          @media (max-width: 768px) {
+              .container {
+                  flex-direction: column;
+              }
+          }
+              </pre
+        >
+
+        <h3>Fluid Layouts & Units:</h3>
+        <p>
+          Use relative units like <code>%</code>, <code>em</code>, and
+          <code>vw</code> to create flexible designs.
+        </p>
+
+        <h3>Mobile-First Approach:</h3>
+        <p>
+          Design for smaller screens first, then add enhancements for larger
+          screens.
+        </p>
+      </section>
+      <section id="variables">
+        <h2>Variables (Custom Properties)</h2>
+        <p>
+          CSS Variables, also called Custom Properties, allow you to store
+          reusable values and simplify theme management.
+        </p>
+
+        <h3>Declaring Variables:</h3>
+        <pre>
+          :root {
+              --primary-color: #3498db;
+              --font-size: 16px;
+          }
+              </pre
+        >
+
+        <h3>Using Variables:</h3>
+        <pre>
+          button {
+              background-color: var(--primary-color);
+              font-size: var(--font-size);
+          }
+              </pre
+        >
+
+        <p>
+          Variables can be overridden in specific scopes and support fallback
+          values.
+        </p>
+      </section>
+    </main>
+
+    <script src="/Scripts/CSSGuide.js"></script>
   </body>
 </html>

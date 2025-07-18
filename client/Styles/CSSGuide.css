@@ -1,290 +1,348 @@
-/* HtmlDocs.css */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
-/* GAIA White-Glass Glassmorphism for Main Container */
+/* CSSGuide.css - Scoped to the #css-guide-page ID */
 
-html {
-  scroll-behavior: smooth;
+/* ------------------------- */
+/* --- General Styles --- */
+/* ------------------------- */
+
+/* Define CSS Variables (Custom Properties) for global use */
+:root {
+  --primary-theme-color: #3498db;
+  --secondary-theme-color: #2c3e50;
+  --background-color: #f4f7f6;
+  --text-color: #333;
+  --section-bg-color: #ffffff;
+  --border-radius: 8px;
+  --main-font-size: 16px;
+  --header-font-family: "Georgia", serif;
+  --body-font-family: "Arial", sans-serif;
 }
 
-
-.docs-container {
-  display: flex; /* Use flex to align sidebar and main horizontally */
-  position: relative;
-  width: 90vw;
-  margin: 32px auto;
-  background: linear-gradient(120deg, #f5faff 0%, #e3e9f7 100%);
-  border-radius: 32px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  overflow: hidden;
-  min-height: 100vh;
+/* Base styles are now applied directly to the ID */
+#css-guide-page {
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
 }
 
-/* Sidebar Navigation - Make selector more specific to prevent conflicts */
-.docs-container > nav {
+#css-guide-page main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+#css-guide-page section {
+  background-color: var(--section-bg-color);
+  margin-bottom: 25px;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Contains floats and margins */
+}
+
+#css-guide-page h1,
+#css-guide-page h2 {
+  font-family: var(--header-font-family);
+  color: var(--secondary-theme-color);
+  border-bottom: 2px solid var(--primary-theme-color);
+  padding-bottom: 10px;
+}
+
+#css-guide-page code {
+  background-color: #e8eaed;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#css-guide-page pre {
+  background-color: #e8eaed;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  white-space: pre-wrap; /* Ensures long lines wrap */
+  word-wrap: break-word;
+}
+
+/* --- Header & Navigation --- */
+#css-guide-page #hero {
+  background-color: var(--secondary-theme-color);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#css-guide-page #hero h1 {
+  margin: 0;
+  font-size: 3em;
+  border: none;
+}
+
+#css-guide-page #css-nav {
+  background-color: #34495e;
+  padding: 15px 0;
   position: sticky;
   top: 0;
-  align-self: flex-start;
-  width: 250px;
-  min-width: 200px;
-  max-width: 300px;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.56);
-  box-shadow: 2px 0 32px 0 rgba(145, 158, 171, 0.08);
-  border-right: 1px solid rgba(220, 224, 236, 0.45);
-  padding-top: 48px;
-  padding-left: 0;
-  overflow-y: auto;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  z-index: 1000;
 }
 
-.docs-container > nav ul {
-  display: flex;
-  flex-direction: column; /* Ensure vertical stacking of nav links */
+#css-guide-page #css-nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0 0 32px 0;
-  width: 100%;
-}
-
-.docs-container > nav li {
-  margin: 0;
   padding: 0;
-  width: 100%;
-}
-
-.docs-container > nav a {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 18px 36px 18px 32px;
-  color: #232943;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.08rem;
-  border-radius: 0 24px 24px 0;
-  transition: background 0.18s, color 0.18s;
-}
-
-.docs-container nav a:hover,
-.docs-container nav a:focus {
-  background: rgba(180, 199, 255, 0.18);
-  color: #3b59e6;
-}
-
-/* Main Content Area */
-.docs-container main {
-  margin-left: 0;
-  flex: 1;
-  padding: 48px 48px 48px 48px;
-  min-width: 0;
-  /* No change needed unless you see overlap */
-}
-
-@media (max-width: 700px) {
-  .docs-container {
-    flex-direction: column;
-  }
-  .docs-container nav {
-    width: 100vw;
-    min-width: 0;
-    max-width: none;
-    padding-top: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(220, 224, 236, 0.45);
-  }
-  .docs-container main {
-    margin-left: 0;
-    padding: 24px 8px 24px 8px;
-  }
-}
-
-/* Headings */
-main section > h2 {
-  margin-top: 0;
-  margin-bottom: 28px;
-  font-size: 2rem;
-  color: #314078;
-  font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #f7fafc 60%, #e3e9f7 100%);
-  border-radius: 10px;
-  padding: 16px 28px 12px 18px;
-  box-shadow: 0 2px 8px 0 rgba(59,89,230,0.04);
-  border-left: 4px solid #b4c7ff;
-  border-right: none;
-  text-shadow: none;
-  transition: background 0.3s, color 0.3s;
-}
-
-
-
-/* GAIA Glassy White Translucent Styles */
-
-.guide-container {
+  margin: 0;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 32px;
-  background: linear-gradient(120deg, #f5faff 0%, #e3e9f7 100%);
-  border-radius: 32px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  min-height: 80vh;
-  position: relative;
-  overflow: visible;
+  flex-wrap: wrap;
 }
 
-.guide-sidebar {
-  position: fixed;
-  top: 40px;
-  left: 0;
-  width: 250px;
-  height: calc(100vh - 80px);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: 2px 0 32px 0 rgba(145, 158, 171, 0.10);
-  border-radius: 24px;
-  border: 1px solid rgba(220, 224, 236, 0.35);
-  padding: 32px 0 32px 0;
-  overflow-y: auto;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.guide-sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 32px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.guide-sidebar li {
-  width: 100%;
-}
-
-.guide-sidebar a {
-  display: block;
-  width: 100%;
-  padding: 16px 32px;
-  color: #232943;
+#css-guide-page #css-nav ul li a {
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.08rem;
-  border-radius: 0 18px 18px 0;
-  transition: background 0.18s, color 0.18s;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.guide-sidebar a:hover,
-.guide-sidebar a:focus {
-  background: rgba(180, 199, 255, 0.18);
-  color: #3b59e6;
+#css-guide-page #css-nav ul li a:hover {
+  background-color: var(--primary-theme-color);
 }
 
-.guide-content {
-  flex: 1;
-  margin-left: 270px;
-  padding: 32px 48px;
-  min-width: 0;
+/* --------------------------------- */
+/* --- Section-Specific Styles --- */
+/* --------------------------------- */
+
+/* --- #introduction Section --- */
+#css-guide-page #introduction p {
+  font-size: 1.1em;
+  color: #555;
 }
 
-.doc-topic {
-  background: rgba(255,255,255,0.60);
-  border: 1.5px solid rgba(180, 199, 255, 0.23);
-  border-radius: 18px;
-  box-shadow: 0 2px 16px 0 rgba(180, 199, 255, 0.09);
-  margin: 18px 0;
-  padding: 0;
-  overflow: hidden;
-  transition: box-shadow 0.18s, border 0.18s;
+/* --- #selectors Section --- */
+#css-guide-page #selectors ul > li {
+  margin-bottom: 10px;
+}
+#css-guide-page #selectors .button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+#css-guide-page #selectors strong {
+  color: #2980b9;
+}
+#css-guide-page #selectors a[href="#selectors"] {
+  font-style: italic;
+  text-decoration: none;
+  color: #8e44ad;
 }
 
-.doc-topic:hover, .doc-topic:focus-within {
-  border: 1.5px solid rgba(59,89,230,0.22);
-  box-shadow: 0 4px 32px 0 rgba(59,89,230, 0.10);
+/* --- #colors-units Section --- */
+#css-guide-page #colors-units h3 {
+  color: #d35400;
+}
+#css-guide-page #colors-units h3:first-of-type {
+  font-size: 1.5rem;
+}
+#css-guide-page #colors-units h3:last-of-type {
+  font-size: 1.2em;
+}
+#css-guide-page #colors-units ul li:nth-child(1) {
+  color: red;
+}
+#css-guide-page #colors-units ul li:nth-child(3) {
+  color: rgb(46, 204, 113);
+}
+#css-guide-page #colors-units ul li:nth-child(4) {
+  background-color: rgba(46, 204, 113, 0.2);
+}
+#css-guide-page #colors-units ul li:nth-child(5) {
+  color: hsl(240, 100%, 50%);
+}
+#css-guide-page #colors-units p {
+  width: 90%;
 }
 
-/* Card Title */
-.doc-title {
-  cursor: pointer;
-  font-size: 1.14rem;
-  font-weight: 600;
-  padding: 20px 28px;
-  color: #314078;
-  user-select: none;
-  transition: background 0.18s, color 0.18s;
+/* --- #box-model Section --- */
+#css-guide-page #box-model .box-model-example {
+  margin: 20px;
+  border: 5px solid #27ae60;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+#css-guide-page #box-model pre {
+  background-color: #ecf0f1;
+  border: 1px dashed #bdc3c7;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* --- #typography Section --- */
+#css-guide-page #typography {
+  font-family: "Georgia", serif;
+}
+#css-guide-page #typography p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+}
+#css-guide-page #typography h3 {
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+#css-guide-page #typography ul li:nth-child(7) strong {
+  text-decoration: underline;
+}
+#css-guide-page #typography ul li:last-child strong {
+  color: #e74c3c;
+}
+
+/* --- #positioning Section --- */
+#css-guide-page #positioning {
   position: relative;
+  min-height: 350px;
+}
+#css-guide-page #positioning::after {
+  content: "Fixed";
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: #e67e22;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 2000;
+}
+#css-guide-page #positioning .absolute-example {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  background: #f1c40f;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1;
 }
 
-.doc-title::after {
-  content: "▼";
-  float: right;
-  font-size: 0.9em;
-  color: #8da6e3;
-  transition: transform 0.28s cubic-bezier(.77,0,.18,1);
+/* --- #flexbox Section --- */
+#css-guide-page #flexbox ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #f0f3f4;
+  padding: 10px;
+  border-radius: var(--border-radius);
 }
-.doc-topic[open] .doc-title::after,
-.doc-title.active::after {
-  transform: rotate(-180deg);
+#css-guide-page #flexbox ul li {
+  background-color: var(--primary-theme-color);
+  color: white;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
 }
-
-/* Doc Content Box (Hidden by default) */
-.doc-content {
-  max-height: none;
-  overflow: visible;
-  background: rgba(248, 250, 255, 0.92);
-  color: #2d3451;
-  font-size: 1rem;
-  padding: 18px 28px;
-  border-top: 1px solid rgba(180, 199, 255, 0.13);
-  opacity: 1;
-  transition: none;
-}
-
-/* Remove .doc-topic.open .doc-content rules */
-.doc-topic.open .doc-content {
-  max-height: none;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  opacity: 1;
-  transition: none;
+#css-guide-page #flexbox ul li:last-child {
+  align-self: flex-end;
 }
 
-/* Small tweaks for better mobile experience */
-@media (max-width: 500px) {
-  .docs-container main {
-    padding: 8px;
+/* --- #grid Section --- */
+#css-guide-page #grid ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 15px;
+  background: #f0f3f4;
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+#css-guide-page #grid ul li {
+  background-color: #16a085;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+#css-guide-page #grid ul li:nth-child(4) {
+  grid-column: span 2;
+  background-color: #1abc9c;
+}
+
+/* --- #transitions-animations Section --- */
+@keyframes heading-pulse {
+  0% {
+    transform: scale(1);
   }
-  .doc-title, .doc-content {
-    padding-left: 14px;
-    padding-right: 14px;
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
+#css-guide-page #transitions-animations h2 {
+  animation: heading-pulse 3s infinite;
+}
+#css-guide-page #transitions-animations a {
+  color: var(--primary-theme-color);
+  transition: color 0.4s ease-in-out;
+}
+#css-guide-page #transitions-animations a:hover {
+  color: #e74c3c;
+}
 
-/* Responsive */
-@media (max-width: 900px) {
-  .guide-container {
+/* --- #responsive-design Section --- */
+#css-guide-page #responsive-design .fluid-container {
+  width: 100%;
+  background: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* --- #variables Section --- */
+#css-guide-page #variables {
+  background-color: var(--secondary-theme-color);
+  color: #fff;
+}
+#css-guide-page #variables h2 {
+  color: #fff;
+  border-bottom-color: var(--primary-theme-color);
+}
+#css-guide-page #variables code {
+  background-color: #555;
+  color: #f1c40f;
+}
+#css-guide-page #variables pre {
+  background-color: var(--secondary-theme-color);
+  border: 1px solid var(--primary-theme-color);
+  color: #fff;
+}
+
+/* -------------------------- */
+/* --- Media Queries for Responsive Design --- */
+/* -------------------------- */
+
+@media (max-width: 768px) {
+  #css-guide-page #css-nav ul {
     flex-direction: column;
-    padding: 8px;
+    align-items: center;
   }
-  .guide-sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-    margin-bottom: 18px;
+
+  #css-guide-page #grid ul {
+    grid-template-columns: 1fr;
   }
-  .guide-content {
-    margin-left: 0;
-    padding: 16px 8px;
+
+  #css-guide-page #grid ul li:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  #css-guide-page #flexbox ul {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
