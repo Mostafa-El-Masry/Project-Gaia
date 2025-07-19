@@ -1,348 +1,507 @@
-/* CSSGuide.css - Scoped to the #css-guide-page ID */
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ------------------------- */
-/* --- General Styles --- */
-/* ------------------------- */
+    :root {
+      --primary: #3498db;
+      --secondary: #2ecc71;
+      --accent: #9b59b6;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --warning: #e74c3c;
+      --info: #1abc9c;
+      --transition: all 0.3s ease;
+    }
 
-/* Define CSS Variables (Custom Properties) for global use */
-:root {
-  --primary-theme-color: #3498db;
-  --secondary-theme-color: #2c3e50;
-  --background-color: #f4f7f6;
-  --text-color: #333;
-  --section-bg-color: #ffffff;
-  --border-radius: 8px;
-  --main-font-size: 16px;
-  --header-font-family: "Georgia", serif;
-  --body-font-family: "Arial", sans-serif;
-}
+    body#css-guide-page {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding-bottom: 50px;
+    }
 
-/* Base styles are now applied directly to the ID */
-#css-guide-page {
-  font-family: var(--body-font-family);
-  line-height: 1.6;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-}
+    /* Header Styles */
+    #hero {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
 
-#css-guide-page main {
-  padding: 20px;
-  max-width: 900px;
-  margin: 20px auto;
-}
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+      pointer-events: none;
+    }
 
-#css-guide-page section {
-  background-color: var(--section-bg-color);
-  margin-bottom: 25px;
-  padding: 25px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  overflow: hidden; /* Contains floats and margins */
-}
+    #hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      animation: fadeInDown 0.8s ease;
+    }
 
-#css-guide-page h1,
-#css-guide-page h2 {
-  font-family: var(--header-font-family);
-  color: var(--secondary-theme-color);
-  border-bottom: 2px solid var(--primary-theme-color);
-  padding-bottom: 10px;
-}
+    #hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
 
-#css-guide-page code {
-  background-color: #e8eaed;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: "Courier New", Courier, monospace;
-}
+    /* Navigation Styles */
+    #css-nav {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 20px;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
 
-#css-guide-page pre {
-  background-color: #e8eaed;
-  padding: 15px;
-  border-radius: var(--border-radius);
-  white-space: pre-wrap; /* Ensures long lines wrap */
-  word-wrap: break-word;
-}
+    #css-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      list-style: none;
+    }
 
-/* --- Header & Navigation --- */
-#css-guide-page #hero {
-  background-color: var(--secondary-theme-color);
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
+    #css-nav li a {
+      text-decoration: none;
+      color: var(--dark);
+      padding: 10px 18px;
+      border-radius: 30px;
+      background: var(--light);
+      font-weight: 600;
+      transition: var(--transition);
+      display: block;
+    }
 
-#css-guide-page #hero h1 {
-  margin: 0;
-  font-size: 3em;
-  border: none;
-}
+    #css-nav li a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
 
-#css-guide-page #css-nav {
-  background-color: #34495e;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    /* Main Content Styles */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-#css-guide-page #css-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    section {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
 
-#css-guide-page #css-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
 
-#css-guide-page #css-nav ul li a:hover {
-  background-color: var(--primary-theme-color);
-}
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 15px;
+    }
 
-/* --------------------------------- */
-/* --- Section-Specific Styles --- */
-/* --------------------------------- */
+    section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
 
-/* --- #introduction Section --- */
-#css-guide-page #introduction p {
-  font-size: 1.1em;
-  color: #555;
-}
+    section h3 {
+      font-size: 1.5rem;
+      margin: 25px 0 15px;
+      color: var(--accent);
+    }
 
-/* --- #selectors Section --- */
-#css-guide-page #selectors ul > li {
-  margin-bottom: 10px;
-}
-#css-guide-page #selectors .button {
-  background-color: #e74c3c;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-#css-guide-page #selectors strong {
-  color: #2980b9;
-}
-#css-guide-page #selectors a[href="#selectors"] {
-  font-style: italic;
-  text-decoration: none;
-  color: #8e44ad;
-}
+    section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
 
-/* --- #colors-units Section --- */
-#css-guide-page #colors-units h3 {
-  color: #d35400;
-}
-#css-guide-page #colors-units h3:first-of-type {
-  font-size: 1.5rem;
-}
-#css-guide-page #colors-units h3:last-of-type {
-  font-size: 1.2em;
-}
-#css-guide-page #colors-units ul li:nth-child(1) {
-  color: red;
-}
-#css-guide-page #colors-units ul li:nth-child(3) {
-  color: rgb(46, 204, 113);
-}
-#css-guide-page #colors-units ul li:nth-child(4) {
-  background-color: rgba(46, 204, 113, 0.2);
-}
-#css-guide-page #colors-units ul li:nth-child(5) {
-  color: hsl(240, 100%, 50%);
-}
-#css-guide-page #colors-units p {
-  width: 90%;
-}
+    ul {
+      padding-left: 25px;
+      margin-bottom: 25px;
+    }
 
-/* --- #box-model Section --- */
-#css-guide-page #box-model .box-model-example {
-  margin: 20px;
-  border: 5px solid #27ae60;
-  padding: 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-#css-guide-page #box-model pre {
-  background-color: #ecf0f1;
-  border: 1px dashed #bdc3c7;
-  text-align: center;
-  font-size: 1.1em;
-}
+    li {
+      margin-bottom: 12px;
+    }
 
-/* --- #typography Section --- */
-#css-guide-page #typography {
-  font-family: "Georgia", serif;
-}
-#css-guide-page #typography p {
-  font-size: 18px;
-  line-height: 1.8;
-  text-align: justify;
-}
-#css-guide-page #typography h3 {
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-#css-guide-page #typography ul li:nth-child(7) strong {
-  text-decoration: underline;
-}
-#css-guide-page #typography ul li:last-child strong {
-  color: #e74c3c;
-}
+    code {
+      background: rgba(52, 152, 219, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #e74c3c;
+    }
 
-/* --- #positioning Section --- */
-#css-guide-page #positioning {
-  position: relative;
-  min-height: 350px;
-}
-#css-guide-page #positioning::after {
-  content: "Fixed";
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  background-color: #e67e22;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
-  z-index: 2000;
-}
-#css-guide-page #positioning .absolute-example {
-  position: absolute;
-  top: 100px;
-  right: 30px;
-  background: #f1c40f;
-  padding: 15px;
-  border-radius: 5px;
-  z-index: 1;
-}
+    pre {
+      background: #2c3e50;
+      color: var(--light);
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
-/* --- #flexbox Section --- */
-#css-guide-page #flexbox ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  background: #f0f3f4;
-  padding: 10px;
-  border-radius: var(--border-radius);
-}
-#css-guide-page #flexbox ul li {
-  background-color: var(--primary-theme-color);
-  color: white;
-  padding: 15px;
-  margin: 5px;
-  border-radius: 5px;
-  text-align: center;
-}
-#css-guide-page #flexbox ul li:last-child {
-  align-self: flex-end;
-}
+    /* Section-specific Styles */
+    /* Introduction */
+    #introduction {
+      border-left: 6px solid var(--primary);
+    }
 
-/* --- #grid Section --- */
-#css-guide-page #grid ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 15px;
-  background: #f0f3f4;
-  padding: 10px;
-  border-radius: var(--border-radius);
-}
-#css-guide-page #grid ul li {
-  background-color: #16a085;
-  color: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-}
-#css-guide-page #grid ul li:nth-child(4) {
-  grid-column: span 2;
-  background-color: #1abc9c;
-}
+    #introduction h2::after {
+      background: var(--primary);
+    }
 
-/* --- #transitions-animations Section --- */
-@keyframes heading-pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-#css-guide-page #transitions-animations h2 {
-  animation: heading-pulse 3s infinite;
-}
-#css-guide-page #transitions-animations a {
-  color: var(--primary-theme-color);
-  transition: color 0.4s ease-in-out;
-}
-#css-guide-page #transitions-animations a:hover {
-  color: #e74c3c;
-}
+    /* Selectors */
+    #selectors {
+      border-left: 6px solid var(--secondary);
+    }
 
-/* --- #responsive-design Section --- */
-#css-guide-page #responsive-design .fluid-container {
-  width: 100%;
-  background: #ecf0f1;
-  padding: 15px;
-  border-radius: 5px;
-}
+    #selectors h2::after {
+      background: var(--secondary);
+    }
 
-/* --- #variables Section --- */
-#css-guide-page #variables {
-  background-color: var(--secondary-theme-color);
-  color: #fff;
-}
-#css-guide-page #variables h2 {
-  color: #fff;
-  border-bottom-color: var(--primary-theme-color);
-}
-#css-guide-page #variables code {
-  background-color: #555;
-  color: #f1c40f;
-}
-#css-guide-page #variables pre {
-  background-color: var(--secondary-theme-color);
-  border: 1px solid var(--primary-theme-color);
-  color: #fff;
-}
+    #selectors li strong {
+      color: var(--secondary);
+    }
 
-/* -------------------------- */
-/* --- Media Queries for Responsive Design --- */
-/* -------------------------- */
+    /* Colors & Units */
+    #colors-units {
+      border-left: 6px solid var(--accent);
+      background: linear-gradient(to right, white 70%, rgba(155, 89, 182, 0.05));
+    }
 
-@media (max-width: 768px) {
-  #css-guide-page #css-nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
+    #colors-units h2::after {
+      background: var(--accent);
+    }
 
-  #css-guide-page #grid ul {
-    grid-template-columns: 1fr;
-  }
+    #colors-units h3 {
+      color: var(--accent);
+    }
 
-  #css-guide-page #grid ul li:nth-child(4) {
-    grid-column: span 1;
-  }
+    /* Box Model */
+    #box-model {
+      border: 4px solid var(--dark);
+      padding: 50px 40px;
+      background: 
+        linear-gradient(white, white) content-box,
+        linear-gradient(to right, #3498db, #3498db) padding-box,
+        linear-gradient(to right, #2ecc71, #2ecc71) border-box;
+      background-size: 100% 100%, 100% 100%, 100% 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    }
 
-  #css-guide-page #flexbox ul {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
+    #box-model::before {
+      content: "Margin Area";
+      position: absolute;
+      top: -30px;
+      left: -4px;
+      background: rgba(46, 204, 113, 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    #box-model::after {
+      content: "Border Area";
+      position: absolute;
+      top: 15px;
+      left: -4px;
+      background: rgba(52, 152, 219, 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    #box-model h2::after {
+      background: var(--info);
+    }
+
+    /* Typography */
+    #typography {
+      border-left: 6px solid var(--warning);
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    #typography h2 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #typography h2::after {
+      background: var(--warning);
+    }
+
+    #typography h3 {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    #typography p {
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* Positioning */
+    #positioning {
+      border-left: 6px solid var(--info);
+      position: relative;
+    }
+
+    #positioning h2::after {
+      background: var(--info);
+    }
+
+    #positioning::before {
+      content: "position: absolute;";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(26, 188, 156, 0.2);
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+
+    #positioning::after {
+      content: "position: fixed;";
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(231, 76, 60, 0.2);
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+
+    /* Flexbox */
+    #flexbox {
+      border-left: 6px solid #f39c12;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    #flexbox > * {
+      flex: 1 1 300px;
+      margin: 10px;
+    }
+
+    #flexbox h2 {
+      flex-basis: 100%;
+    }
+
+    #flexbox h2::after {
+      background: #f39c12;
+    }
+
+    /* Grid */
+    #grid {
+      border-left: 6px solid #d35400;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    #grid h2 {
+      grid-column: 1 / -1;
+    }
+
+    #grid h2::after {
+      background: #d35400;
+    }
+
+    /* Transitions & Animations */
+    #transitions-animations {
+      border-left: 6px solid #8e44ad;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #transitions-animations:hover {
+      transform: scale(1.01) translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    #transitions-animations h2::after {
+      background: #8e44ad;
+      animation: pulse 2s infinite;
+    }
+
+    /* Responsive Design */
+    #responsive-design {
+      border-left: 6px solid #16a085;
+    }
+
+    #responsive-design h2::after {
+      background: #16a085;
+    }
+
+    @media (max-width: 768px) {
+      #responsive-design {
+        background: rgba(22, 160, 133, 0.05);
+      }
+    }
+
+    @media (max-width: 480px) {
+      #responsive-design {
+        background: rgba(22, 160, 133, 0.1);
+      }
+    }
+
+    /* Variables */
+    #variables {
+      border-left: 6px solid #c0392b;
+      background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+      --section-accent: #c0392b;
+    }
+
+    #variables h2::after {
+      background: var(--section-accent);
+    }
+
+    #variables pre {
+      background: rgba(192, 57, 43, 0.1);
+      color: #333;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scaleX(1);
+      }
+      50% {
+        transform: scaleX(1.5);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--dark);
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      #hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      #hero p {
+        font-size: 1.2rem;
+      }
+      
+      #css-nav ul {
+        gap: 8px;
+      }
+      
+      #css-nav li a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #hero {
+        padding: 60px 15px 40px;
+      }
+      
+      #hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      section {
+        padding: 30px 20px;
+      }
+      
+      #css-nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      #css-nav li {
+        width: 100%;
+      }
+      
+      #css-nav li a {
+        text-align: center;
+      }
+      
+      pre {
+        font-size: 0.85rem;
+        padding: 15px;
+      }
+    }
