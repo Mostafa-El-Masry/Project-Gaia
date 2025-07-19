@@ -1,35 +1,50 @@
 // Fetch and display user memory in the #memory-section
-fetch('/Memory/user.json')
-  .then(response => response.json())
-  .then(data => {
-    const memorySection = document.getElementById('memory-section');
+fetch("/Memory/user.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const memorySection = document.getElementById("memory-section");
     if (!memorySection) return;
 
     // Helper to render arrays (inline for small/simple arrays)
     function renderArray(arr, inline = false) {
-      if (inline || arr.every(item => typeof item !== 'object')) {
-        return arr.join(', ');
+      if (inline || arr.every((item) => typeof item !== "object")) {
+        return arr.join(", ");
       }
-      return `<ul style="margin-left:1em; margin-top:0.3em;">${arr.map(item => `<li>${item}</li>`).join('')}</ul>`;
+      return `<ul style="margin-left:1em; margin-top:0.3em;">${arr
+        .map((item) => `<li>${item}</li>`)
+        .join("")}</ul>`;
     }
 
     // Helper to decide if an array should be inline (for smallest/simple arrays)
     function isInlineArray(key, arr) {
       // Show inline for traits, languages, soft skills, days, programming, and any array of primitives
-      const inlineKeys = ['traits', 'languages', 'soft skills', 'days', 'programming'];
-      return inlineKeys.includes(key) || arr.every(item => typeof item !== 'object');
+      const inlineKeys = [
+        "traits",
+        "languages",
+        "soft skills",
+        "days",
+        "programming",
+      ];
+      return (
+        inlineKeys.includes(key) ||
+        arr.every((item) => typeof item !== "object")
+      );
     }
 
     // Helper to render objects (recursive, expandable)
-    function renderObject(obj, path = '') {
+    function renderObject(obj, path = "") {
       return `<ul style="margin-left:1em; margin-top:0.3em;">
-        ${Object.entries(obj).map(([key, value]) => {
-          const id = `memexp-${btoa(path + key).replace(/=/g, '')}`;
-          if (Array.isArray(value)) {
-            if (isInlineArray(key, value)) {
-              return `<li><strong>${key}:</strong> ${renderArray(value, true)}</li>`;
-            }
-            return `
+        ${Object.entries(obj)
+          .map(([key, value]) => {
+            const id = `memexp-${btoa(path + key).replace(/=/g, "")}`;
+            if (Array.isArray(value)) {
+              if (isInlineArray(key, value)) {
+                return `<li><strong>${key}:</strong> ${renderArray(
+                  value,
+                  true
+                )}</li>`;
+              }
+              return `
               <li>
                 <span class="memexp-arrow" data-target="${id}" style="cursor:pointer;">&#9654;</span>
                 <strong>${key}</strong>
@@ -38,44 +53,52 @@ fetch('/Memory/user.json')
                 </div>
               </li>
             `;
-          } else if (typeof value === 'object' && value !== null) {
-            return `
+            } else if (typeof value === "object" && value !== null) {
+              return `
               <li>
                 <span class="memexp-arrow" data-target="${id}" style="cursor:pointer;">&#9654;</span>
                 <strong>${key}</strong>
                 <div id="${id}" class="memexp-collapsed" style="display:none;">
-                  ${renderObject(value, path + key + '.')}
+                  ${renderObject(value, path + key + ".")}
                 </div>
               </li>
             `;
-          } else {
-            return `<li><strong>${key}:</strong> ${value}</li>`;
-          }
-        }).join('')}
+            } else {
+              return `<li><strong>${key}:</strong> ${value}</li>`;
+            }
+          })
+          .join("")}
       </ul>`;
     }
 
     // Helper to build expandable section for any top-level key
     function buildExpandableSection(key, value) {
-      const id = `memexp-${btoa(key).replace(/=/g, '')}`;
+      const id = `memexp-${btoa(key).replace(/=/g, "")}`;
       return `
         <div>
           <span class="memexp-arrow memexp-top" data-target="${id}" style="cursor:pointer;">&#9654;</span>
           <strong>${key}</strong>
           <div id="${id}" class="memexp-collapsed" style="display:none;">
-            ${typeof value === 'object' && value !== null ? renderObject(value, key + '.') : value}
+            ${
+              typeof value === "object" && value !== null
+                ? renderObject(value, key + ".")
+                : value
+            }
           </div>
         </div>
       `;
     }
 
     // Build HTML for all top-level fields
-    let html = '';
+    let html = "";
     for (const [key, value] of Object.entries(data)) {
-      if (typeof value === 'object' && value !== null) {
+      if (typeof value === "object" && value !== null) {
         html += buildExpandableSection(key, value);
       } else if (Array.isArray(value)) {
-        html += `<div><strong>${key}:</strong> ${renderArray(value, true)}</div>`;
+        html += `<div><strong>${key}:</strong> ${renderArray(
+          value,
+          true
+        )}</div>`;
       } else {
         html += `<div><strong>${key}:</strong> ${value}</div>`;
       }
@@ -84,53 +107,57 @@ fetch('/Memory/user.json')
     memorySection.innerHTML = html;
 
     // All top-level arrows expand/collapse their children
-    memorySection.querySelectorAll('.memexp-arrow.memexp-top').forEach(topArrow => {
-      topArrow.addEventListener('click', function () {
-        const targetId = this.getAttribute('data-target');
-        const target = document.getElementById(targetId);
-        if (target) {
-          const isCollapsed = target.style.display === 'none';
-          target.style.display = isCollapsed ? '' : 'none';
-          this.innerHTML = isCollapsed ? '&#9660;' : '&#9654;'; // ▼ or ▶
+    memorySection
+      .querySelectorAll(".memexp-arrow.memexp-top")
+      .forEach((topArrow) => {
+        topArrow.addEventListener("click", function () {
+          const targetId = this.getAttribute("data-target");
+          const target = document.getElementById(targetId);
+          if (target) {
+            const isCollapsed = target.style.display === "none";
+            target.style.display = isCollapsed ? "" : "none";
+            this.innerHTML = isCollapsed ? "&#9660;" : "&#9654;"; // ▼ or ▶
 
-          // Expand/collapse all nested .memexp-collapsed inside this section
-          target.querySelectorAll('.memexp-collapsed').forEach(div => {
-            div.style.display = isCollapsed ? '' : 'none';
-          });
-          // Set all arrows accordingly inside this section
-          target.querySelectorAll('.memexp-arrow').forEach(arrow2 => {
-            arrow2.innerHTML = isCollapsed ? '&#9660;' : '&#9654;';
-          });
-        }
+            // Expand/collapse all nested .memexp-collapsed inside this section
+            target.querySelectorAll(".memexp-collapsed").forEach((div) => {
+              div.style.display = isCollapsed ? "" : "none";
+            });
+            // Set all arrows accordingly inside this section
+            target.querySelectorAll(".memexp-arrow").forEach((arrow2) => {
+              arrow2.innerHTML = isCollapsed ? "&#9660;" : "&#9654;";
+            });
+          }
+        });
       });
-    });
 
     // Still allow nested arrows to expand/collapse individually
-    memorySection.querySelectorAll('.memexp-arrow:not(.memexp-top)').forEach(arrow => {
-      arrow.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const targetId = this.getAttribute('data-target');
-        const target = document.getElementById(targetId);
-        if (target) {
-          const isCollapsed = target.style.display === 'none';
-          target.style.display = isCollapsed ? '' : 'none';
-          this.innerHTML = isCollapsed ? '&#9660;' : '&#9654;';
-        }
+    memorySection
+      .querySelectorAll(".memexp-arrow:not(.memexp-top)")
+      .forEach((arrow) => {
+        arrow.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const targetId = this.getAttribute("data-target");
+          const target = document.getElementById(targetId);
+          if (target) {
+            const isCollapsed = target.style.display === "none";
+            target.style.display = isCollapsed ? "" : "none";
+            this.innerHTML = isCollapsed ? "&#9660;" : "&#9654;";
+          }
+        });
       });
-    });
   })
-  .catch(err => {
-    const memorySection = document.getElementById('memory-section');
+  .catch((err) => {
+    const memorySection = document.getElementById("memory-section");
     if (memorySection) {
-      memorySection.textContent = 'Failed to load memory.';
+      memorySection.textContent = "Failed to load memory.";
     }
   });
 
 // Fetch and display user thoughts in the #thoughts-section
-fetch('/Memory/user.json')
-  .then(response => response.json())
-  .then(data => {
-    const thoughtsSection = document.getElementById('thoughts-section');
+fetch("/Memory/user.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const thoughtsSection = document.getElementById("thoughts-section");
     if (!thoughtsSection) return;
 
     // Build your messages array
@@ -147,16 +174,24 @@ fetch('/Memory/user.json')
     if (habits) {
       const allHabits = Object.values(habits).flat();
       if (allHabits.length > 0) {
-        const randomHabit = allHabits[Math.floor(Math.random() * allHabits.length)];
+        const randomHabit =
+          allHabits[Math.floor(Math.random() * allHabits.length)];
         messages.push(`Don't forget to ${randomHabit}.`);
-        if (allHabits.some(h => h.toLowerCase().includes('jog'))) {
+        if (allHabits.some((h) => h.toLowerCase().includes("jog"))) {
           messages.push(`You jog in the morning — stay consistent.`);
         }
       }
     }
 
     // Wedding goal
-    if (goals && goals.some(g => g.toLowerCase().includes('wedding') || g.toLowerCase().includes('married'))) {
+    if (
+      goals &&
+      goals.some(
+        (g) =>
+          g.toLowerCase().includes("wedding") ||
+          g.toLowerCase().includes("married")
+      )
+    ) {
       messages.push("Your wedding is approaching. Deep breaths.");
     }
 
@@ -168,7 +203,7 @@ fetch('/Memory/user.json')
     // Animation and cycling logic
     let idx = 0;
     function showNextThought() {
-      thoughtsSection.style.transition = 'opacity 0.5s';
+      thoughtsSection.style.transition = "opacity 0.5s";
       thoughtsSection.style.opacity = 0;
       setTimeout(() => {
         thoughtsSection.textContent = messages[idx];
@@ -182,28 +217,32 @@ fetch('/Memory/user.json')
     setInterval(showNextThought, 5500); // 5.5s per message (0.5s fade out + 5s display)
   })
   .catch(() => {
-    const thoughtsSection = document.getElementById('thoughts-section');
+    const thoughtsSection = document.getElementById("thoughts-section");
     if (thoughtsSection) {
       thoughtsSection.textContent = "Unable to load thoughts.";
     }
   });
 
 // Fetch and display user goals in the #visions-section, and allow adding new ones
-fetch('/Memory/user.json')
-  .then(response => response.json())
-  .then(data => {
-    const visionsSection = document.getElementById('visions-section');
+fetch("/Memory/user.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const visionsSection = document.getElementById("visions-section");
     if (!visionsSection) return;
 
     // Get initial goals array
-    let goals = Array.isArray(data.personality?.goals) ? [...data.personality.goals] : [];
+    let goals = Array.isArray(data.personality?.goals)
+      ? [...data.personality.goals]
+      : [];
 
     // Build the UI: heading, count, + button (no circle), and list (input hidden by default)
     visionsSection.innerHTML = `
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5em;">
         <div>
           <span style="font-weight:bold;">Active Visions</span>
-          <span id="visions-count" style="color:#7dd3fc; margin-left:1em;">${goals.length} goals set</span>
+          <span id="visions-count" style="color:#7dd3fc; margin-left:1em;">${
+            goals.length
+          } goals set</span>
         </div>
         <button id="show-vision-input" title="Add Vision"
           style="background:none; border:none; font-size:2.5em; font-weight:bold; color:#38bdf8; cursor:pointer; transition:transform 0.2s;">
@@ -217,28 +256,28 @@ fetch('/Memory/user.json')
           style="width:120px; padding:0.5em 0.8em; border-radius:0.4em; background:#38bdf8; color:#fff; border:none; cursor:pointer;">Submit</button>
       </div>
       <ul id="visions-list" style="margin-left:1em;">
-        ${goals.map(goal => `<li>${goal}</li>`).join('')}
+        ${goals.map((goal) => `<li>${goal}</li>`).join("")}
       </ul>
     `;
 
-    const showInputBtn = document.getElementById('show-vision-input');
-    const inputRow = document.getElementById('vision-input-row');
-    const input = document.getElementById('vision-input');
-    const submitBtn = document.getElementById('submit-vision-btn');
-    const list = document.getElementById('visions-list');
-    const count = document.getElementById('visions-count');
+    const showInputBtn = document.getElementById("show-vision-input");
+    const inputRow = document.getElementById("vision-input-row");
+    const input = document.getElementById("vision-input");
+    const submitBtn = document.getElementById("submit-vision-btn");
+    const list = document.getElementById("visions-list");
+    const count = document.getElementById("visions-count");
 
     // Show/hide input row with animation and delay when + is clicked
-    showInputBtn.addEventListener('click', () => {
-      if (inputRow.style.display === 'flex') {
-        inputRow.style.opacity = '0';
+    showInputBtn.addEventListener("click", () => {
+      if (inputRow.style.display === "flex") {
+        inputRow.style.opacity = "0";
         setTimeout(() => {
-          inputRow.style.display = 'none';
+          inputRow.style.display = "none";
         }, 400); // match transition duration
       } else {
-        inputRow.style.display = 'flex';
+        inputRow.style.display = "flex";
         setTimeout(() => {
-          inputRow.style.opacity = '1';
+          inputRow.style.opacity = "1";
         }, 10); // allow display:flex to apply before animating opacity
         input.focus();
       }
@@ -249,47 +288,57 @@ fetch('/Memory/user.json')
       const value = input.value.trim();
       if (value) {
         // Add to UI immediately
-        const li = document.createElement('li');
+        const li = document.createElement("li");
         li.textContent = value;
         list.appendChild(li);
         goals.push(value);
         count.textContent = `${goals.length} goals set`;
-        input.value = '';
-        inputRow.style.opacity = '0';
+        input.value = "";
+        inputRow.style.opacity = "0";
         setTimeout(() => {
-          inputRow.style.display = 'none';
+          inputRow.style.display = "none";
         }, 400);
 
         // Save to backend for persistence
-        fetch('/update-memory', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ newGoal: value })
+        fetch("/update-memory", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ newGoal: value }),
         })
-        .then(res => res.json())
-        .then(result => {
-          // Optionally update UI with result.goals if needed
-        })
-        .catch(() => {
-          // Optionally show error or fallback
-        });
+          .then((res) => res.json())
+          .then((result) => {
+            // Optionally update UI with result.goals if needed
+          })
+          .catch(() => {
+            // Optionally show error or fallback
+          });
       }
     }
 
-    submitBtn.addEventListener('click', addVision);
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') addVision();
-      if (e.key === 'Escape') {
-        inputRow.style.opacity = '0';
+    submitBtn.addEventListener("click", addVision);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") addVision();
+      if (e.key === "Escape") {
+        inputRow.style.opacity = "0";
         setTimeout(() => {
-          inputRow.style.display = 'none';
+          inputRow.style.display = "none";
         }, 400);
       }
     });
   })
   .catch(() => {
-    const visionsSection = document.getElementById('visions-section');
+    const visionsSection = document.getElementById("visions-section");
     if (visionsSection) {
       visionsSection.textContent = "Unable to load visions.";
     }
   });
+
+function updateProgress(percent) {
+  const progressBar = document.getElementById("gaia-progress");
+  const progressText = document.getElementById("progress-value");
+
+  progressBar.style.width = percent + "%";
+  progressText.textContent = percent + "%";
+}
+
+// Example: updateProgress(5); to reflect 5%
